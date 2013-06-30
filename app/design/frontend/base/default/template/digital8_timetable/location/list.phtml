@@ -74,9 +74,11 @@
 			<ul class="options">
 				<?php
 					$months = array();
+          $start = strtotime("first day of month");
+
 					for ($i = 0; $i < 12; ++$i)
 					{
-						$months[] = strtotime("first day " . $i . " month");
+						$months[] = strtotime("first day " . $i . " month", $start);
 					}
 
 					$_year = "";
