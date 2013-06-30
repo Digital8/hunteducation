@@ -1,0 +1,48 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Intake list template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_intakes = $this->getIntakes(); ?>
+<div class="page-title intake-title">
+	<?php if(Mage::helper('timetable/intake')->isRssEnabled()) : ?>
+		<a href="<?php echo Mage::helper('timetable/intake')->getRssUrl();?>" class="link-rss"><?php echo Mage::helper('timetable')->__('Subscribe to RSS Feed')?></a>
+	<?php endif;?>
+	<h1><?php echo Mage::helper('timetable')->__('Intakes') ?></h1>
+</div>
+<?php if ($_intakes->getSize() > 0) :?>
+<?php echo $this->getPagerHtml(); ?>
+<div class="intake-list-container">
+	<?php foreach ($_intakes as $_intake) : ?>
+		<div class="intake-list-item">
+			<a href="<?php echo $_intake->getIntakeUrl();?>" title="<?php echo $this->htmlEscape($_intake->getName()) ?>">
+				<?php echo $_intake->getName(); ?>
+			</a>
+
+		</div>
+	<?php endforeach;?>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+	<?php echo Mage::helper('timetable')->__('There are no intakes at this moment');?>
+<?php endif;?> 

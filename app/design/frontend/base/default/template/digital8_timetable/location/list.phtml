@@ -1,0 +1,288 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Location list template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+
+	//this is the class size definition
+	$MAX_CLASS_SIZE = 30;
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+<?php $_locations = $this->getLocations(); ?>
+
+
+<div class="page-title">
+	<div>
+		<h1><small>Course Timetable</small>QIBA SMIPA Classes</h1>
+	</div>
+	
+	<hr class="trim">
+</div>
+
+<div class="std"><h1>Where are the QIBA SMIPA courses offered?</h1>
+
+	<div class="grid-view">
+		<section class="col-2 tablet-col-5 mobile-col-5 column first">
+			<header>
+				<img src="http://www.hunteducation.com/skin/frontend/default/hunteducation/images/icons/location-mask.png" alt="Select Locations" class="icon">
+				Select Locations
+			</header>
+			
+			<ul class="options">
+				<?php foreach ($_locations as $_location) : ?>
+				<?php $_suburb = str_replace(' ', '-', $_location->getSuburb()); ?>
+
+				<li>
+					<label for="location-<?php echo $_suburb; ?>">
+						<span class="note"><?php echo strtoupper($_location->getState()); ?></span>
+						<input type="checkbox" name="<?php echo $_suburb; ?>" id="location-<?php echo $_suburb; ?>">
+						<?php echo $_location->getSuburb(); ?>
+					</label>
+				</li>
+
+				<?php endforeach;?>
+			</ul>
+		</section>
+		
+		<section class="col-2 tablet-col-5 mobile-col-5 column">
+			<header>
+				<img src="http://www.hunteducation.com/skin/frontend/default/hunteducation/images/icons/calendar-mask.png" alt="Select Months" class="icon">
+				Select Months
+			</header>
+			
+			<ul class="options">
+				<?php
+					$months = array();
+					for ($i = 0; $i < 12; ++$i)
+					{
+						$months[] = strtotime("first day " . $i . " month");
+					}
+
+					$_year = "";
+
+					foreach ($months as $time)
+					{
+						$month = date("F", $time);
+						$lowered = strtolower($month);
+						$year = date("Y", $time);
+
+						if($_year != $year) {
+							echo "<li><label style='cursor:default; text-align:center; font-weight:bold;'>" . $year . "</label></li>";
+						}
+
+						$_year = $year;
+
+				?>
+					<li>
+						<label for="month-<?php echo $lowered; ?>">
+							<input type="checkbox" name="<?php echo $lowered; ?>" id="month-<?php echo $lowered; ?>">
+							<?php echo $month; ?>
+						</label>
+					</li>
+				<?php
+					}
+				?>
+
+			</ul>
+		</section>
+		
+		<section class="col-6 tablet-col-10 mobile-col-10 column full-height last disabled">
+			<header>
+				<img src="http://www.hunteducation.com/skin/frontend/default/hunteducation/images/icons/information-mask.png" alt="Location information and Course Dates" class="icon">
+				Location Information &amp; Course Dates
+			</header>
+			
+			<div class="disabled-notice">
+				<img src="http://www.hunteducation.com/skin/frontend/default/hunteducation/images/icons/information.png" alt="" class="icon">
+				Please select locations and dates to the left. The relevant information will then be displayed.
+			</div>
+
+			<ul class="locations">
+
+				<?php foreach ($_locations as $_location) : ?>
+					<?php $_suburb = str_replace(' ', '-', $_location->getSuburb()); ?>
+
+					<li id="info-<?php echo $_suburb; ?>" style="display: none;">
+						<header>
+							<a href="<?php echo $_location->getGooglemaps(); ?>" target="_blank" class="right view-map">View in Google Maps</a>
+							<h1><?php echo $_location->getSuburb(); ?>, <?php echo $_location->getState(); ?></h1>
+						</header>
+						
+						<div class="content disabled">
+							<strong><?php echo $_location->getName(); ?></strong><br>
+							<?php echo $_location->getAddress(); ?>
+							
+							<hr class="compact">
+							
+							<span class="note right" style="color:red;">Please select months to the left.</span>
+							
+							<h2>Dates Available</h2>
+							<ul class="dates">
+								<li class="intake-<?php echo $_suburb; ?>-none">
+									<div class="col-10 date">There are no classes available at this location.</div>
+								</li>
+
+								<?php $_intakes = Mage::getModel('timetable/intake')->getCollection()->addFieldToFilter("location_id", $_location->getID()); ?>
+								<?php if ($_intakes->getSize() > 0) : ?>
+									<?php foreach ($_intakes as $_intake) : ?>
+										<?php
+											$_enrolled = (int) $_intake->getEnrolled();
+											$_date = strtotime($_intake->getDate());
+											$_month = strtolower(date('F', $_date));
+											$_class = "intake intake-" . $_suburb . "-" . $_month;
+											$_enrol_url = "#";
+
+											if ($_enrolled >= $MAX_CLASS_SIZE) {
+												echo "<li class='disabled " . $_class . "' style='display:none'>";
+											}
+											else {
+												echo "<li class='" . $_class . "' style='display:none'>";
+												$_enrol_url = "/enrolment";
+											}
+										?>
+
+											<div class="col-5 date"><?php 
+												echo date('l, jS \of F, Y', $_date);
+											?></div>
+											
+											<div class="col-3 places"><strong><?php
+												if ($_enrolled >= $MAX_CLASS_SIZE) {
+													echo 0;
+												}
+												else {
+													echo $MAX_CLASS_SIZE - $_enrolled;
+												}
+											?></strong> Places Left</div>
+											
+											<div class="col-2"><a href="<?php echo $_enrol_url; ?>" class="button secondary right">Enrol Now</a></div>
+										</li>
+
+									<?php endforeach; ?>
+								<?php endif; ?> 
+							
+							</ul>
+						</div>
+					</li>
+
+				<?php endforeach;?>
+
+			</ul>
+		</section>
+	</div>
+</div>
+
+<script type="text/javascript">// <![CDATA[
+$j(document).ready(function() {
+
+	//some glitch on back history
+	//on load uncheck anything thats checked to get to sane state
+	$j(':checked').attr('checked', false);
+
+  $j("#header-nav li#nav-timetable").addClass("active");
+
+  //so we need to hide the disabled notice when more than one suburb is selected
+  //for each suburb that is selected we need to show its locations.
+  $j('input[type=checkbox][id^=location-]').on('change', function(event) {
+  	//get the suburb of the location that just changed
+  	var suburb = $j(this).attr('name');
+
+  	if($j(this).attr('checked')) {
+  		//show the info for this location
+  		$j("#info-" + suburb).show();
+  		$j('.disabled-notice').hide();
+  	}
+  	else {
+  		//hide the info for this location
+			$j("#info-" + suburb).hide();
+
+  		//if we are hiding osmething then we should also check to see if they are all hidden
+  		if (!$j('input[type=checkbox][id^=location-]:checked').length) {
+  			$j('.disabled-notice').show();
+  		}
+	  }
+  });
+
+
+  $j('input[type=checkbox][id^=month-]').on('change', function(event) {
+  	//get the name of the month that just changed
+  	var month = $j(this).attr('name');
+
+  	if($j(this).attr('checked')) {
+  		$j('.locations .content').removeClass('disabled');
+  	}
+  	else {
+  		//if we are hiding osmething then we should also check to see if they are all hidden
+  		if (!$j('input[type=checkbox][id^=month-]:checked').length) {
+				$j('.locations .content').addClass('disabled');
+  		}
+	  }
+  });
+
+  //when either a month or a location changes
+  //we need to make a list of the months selected
+  //we also need a list of the locations selected
+  $j('input[type=checkbox][id^=month-], input[type=checkbox][id^=location-]').on('change', function(event) {
+  	var months = [];
+  	var locations = [];
+
+  	$j('input[type=checkbox][id^=month-]:checked').each(function() {
+  		months.push($j(this).attr('name'));
+  	});
+
+  	$j('input[type=checkbox][id^=location-]:checked').each(function() {
+  		locations.push($j(this).attr('name'));
+  	});
+
+  	$j('.intake').hide();
+
+  	//for each location we check that each of the months that are selected have intakes
+  	for(var i=0; i<locations.length; ++i) {
+  		var intakes = 0;
+
+  		for(var j=0; j<months.length; ++j) {
+
+  			//check if there is an intake for this month
+  			if($j('.intake-'+locations[i]+'-'+months[j]).length) {
+  				$j('.intake-'+locations[i]+'-'+months[j]).show();
+  				++intakes;
+  			}
+
+  		}
+
+  		if(intakes) {
+  			$j('.intake-'+locations[i]+'-none').hide();
+  		}
+  		else {
+  			$j('.intake-'+locations[i]+'-none').show();
+  		}
+
+  	}
+
+  });
+
+  //dont let them click on the full and/or disabled ones
+  $j('.dates .disabled a').on('click', function(event) {
+  	event.preventDefault();
+  });
+
+});
+// ]]></script>

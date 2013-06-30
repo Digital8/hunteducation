@@ -1,0 +1,40 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Location Intake list template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php $_intakes = $this->getIntakes(); ?>
+<?php if ($_intakes->getSize() > 0) :?>
+<div class="page-title intake-title">
+	<h2><?php echo Mage::helper('timetable')->__('Intakes') ?>:<?php echo $this->getLocation()->getName();?></h2>
+</div>
+<div class="intakes-list-container">
+	<?php foreach ($_intakes as $_intake) : ?>
+		<div class="intake-list-item">
+			<a href="<?php echo $_intake->getIntakeUrl();?>" title="<?php echo $this->htmlEscape($_intake->getName()) ?>">
+				<?php echo $_intake->getName(); ?>
+			</a>
+
+		</div>
+	<?php endforeach;?>
+</div>
+<?php endif;?> 

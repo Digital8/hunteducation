@@ -1,0 +1,48 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Enrolment list template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_enrolments = $this->getEnrolments(); ?>
+<div class="page-title enrolment-title">
+	<?php if(Mage::helper('timetable/enrolment')->isRssEnabled()) : ?>
+		<a href="<?php echo Mage::helper('timetable/enrolment')->getRssUrl();?>" class="link-rss"><?php echo Mage::helper('timetable')->__('Subscribe to RSS Feed')?></a>
+	<?php endif;?>
+	<h1><?php echo Mage::helper('timetable')->__('Enrolments') ?></h1>
+</div>
+<?php if ($_enrolments->getSize() > 0) :?>
+<?php echo $this->getPagerHtml(); ?>
+<div class="enrolment-list-container">
+	<?php foreach ($_enrolments as $_enrolment) : ?>
+		<div class="enrolment-list-item">
+			<a href="<?php echo $_enrolment->getEnrolmentUrl();?>" title="<?php echo $this->htmlEscape($_enrolment->getName()) ?>">
+				<?php echo $_enrolment->getName(); ?>
+			</a>
+
+		</div>
+	<?php endforeach;?>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+	<?php echo Mage::helper('timetable')->__('There are no enrolments at this moment');?>
+<?php endif;?> 

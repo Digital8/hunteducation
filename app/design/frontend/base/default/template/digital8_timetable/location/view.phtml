@@ -1,0 +1,47 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Location view template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php $_location = $this->getCurrentLocation();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title location-title">
+	<h1><?php echo $_location->getName(); ?></h1>
+</div>
+<div class="location-view">
+	<div class="location-suburb">
+		<?php echo Mage::helper('timetable')->__('Suburb');?>:<?php echo $_location->getSuburb();?>
+	</div>
+	<div class="location-state">
+		<?php echo Mage::helper('timetable')->__('State');?>:<?php echo $_location->getState();?>
+	</div>
+	<div class="location-address">
+		<?php echo Mage::helper('timetable')->__('Address');?>:<?php echo $_location->getAddress();?>
+	</div>
+	<div class="location-googlemaps">
+		<?php echo Mage::helper('timetable')->__('Google Maps');?>:<?php echo $_location->getGooglemaps();?>
+	</div>
+	<div class="location-name">
+		<?php echo Mage::helper('timetable')->__('Name');?>:<?php echo $_location->getName();?>
+	</div>
+
+</div>

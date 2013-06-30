@@ -1,0 +1,41 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Intake view template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php $_intake = $this->getCurrentIntake();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title intake-title">
+	<h1><?php echo $_intake->getName(); ?></h1>
+</div>
+<div class="intake-view">
+	<div class="intake-date">
+		<?php echo Mage::helper('timetable')->__('Date');?>:<?php echo $_intake->getDate();?>
+	</div>
+	<div class="intake-enrolled">
+		<?php echo Mage::helper('timetable')->__('Enrolled');?>:<?php echo $_intake->getEnrolled();?>
+	</div>
+	<div class="intake-name">
+		<?php echo Mage::helper('timetable')->__('Name');?>:<?php echo $_intake->getName();?>
+	</div>
+
+</div>

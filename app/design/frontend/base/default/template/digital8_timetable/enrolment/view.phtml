@@ -1,0 +1,47 @@
+<?php 
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Enrolment view template
+ *
+ * @category	Digital8
+ * @package		Digital8_Timetable
+ * @author Ultimate Module Creator
+ */
+?>
+<?php $_enrolment = $this->getCurrentEnrolment();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title enrolment-title">
+	<h1><?php echo $_enrolment->getName(); ?></h1>
+</div>
+<div class="enrolment-view">
+	<div class="enrolment-uuid">
+		<?php echo Mage::helper('timetable')->__('uuid');?>:<?php echo $_enrolment->getUuid();?>
+	</div>
+	<div class="enrolment-xml">
+		<?php echo Mage::helper('timetable')->__('xml');?>:<?php echo $_enrolment->getXml();?>
+	</div>
+	<div class="enrolment-approved">
+		<?php echo Mage::helper('timetable')->__("approved");?>:<?php echo ($_enrolment->getApproved() == 1)?Mage::helper('timetable')->__('Yes'):Mage::helper('timetable')->__('No') ?>
+	</div>
+	<div class="enrolment-email">
+		<?php echo Mage::helper('timetable')->__('email');?>:<?php echo $_enrolment->getEmail();?>
+	</div>
+	<div class="enrolment-name">
+		<?php echo Mage::helper('timetable')->__('name');?>:<?php echo $_enrolment->getName();?>
+	</div>
+
+</div>
