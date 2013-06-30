@@ -74,7 +74,9 @@
 			<ul class="options">
 				<?php
 					$months = array();
-          $start = date('Y-m-01');
+          $start = strtotime("first day " . 0 . " month");
+
+          d($start);
 
 					for ($i = 0; $i < 12; ++$i)
 					{
