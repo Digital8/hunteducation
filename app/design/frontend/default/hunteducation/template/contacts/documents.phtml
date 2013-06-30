@@ -33,6 +33,21 @@ $_SESSION['userdetails'] = $_POST;
 d($_SESSION['userdetails']);
 ?>
 
+<?php
+// Config
+$dbhost = 'localhost';
+$dbname = 'hunt';
+
+// Connect to test database
+$m = new Mongo("mongodb://$dbhost");
+$db = $m->$dbname;
+
+// select the collection
+$db->hunt->insert($_SESSION['userdetails']);
+
+?>
+
+
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 
 	<link rel="stylesheet" type="text/css" href="/skin/frontend/default/hunteducation/js/libs/css/dropzone.css" media="all">
