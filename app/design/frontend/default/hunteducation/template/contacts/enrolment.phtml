@@ -29,7 +29,7 @@ require 'kint/Kint.class.php';
 Mage::getSingleton('customer/session')->setBeforeAuthUrl($this->getRequest()->getRequestUri());  //save requested URL for later redirection
 if(Mage::getSingleton('customer/session')->getCustomerGroupId() == 0) {  // if not logged in
     header("Status: 301");
-    header('Location: '.Mage::helper('core/url')->getHomeUrl(customer/account/login)) ;  // send to the login page
+    header('Location: '.Mage::helper('core/url')->getHomeUrl('customer/account/login')) ;  // send to the login page
     exit; 
 }
 
