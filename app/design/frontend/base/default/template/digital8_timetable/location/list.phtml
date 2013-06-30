@@ -74,9 +74,12 @@
 			<ul class="options">
 				<?php
 					$months = array();
+          //get it to the start of the month, because the order of operation is backwards.
+          //so 30/31 seem to glitch. this fixes it
+          d(strtotime("now"));
           $start = strtotime("first day " . 0 . " month");
 
-          d($start);
+          //d($start);
 
 					for ($i = 0; $i < 12; ++$i)
 					{
@@ -85,7 +88,7 @@
 
 					$_year = "";
 
-          d($months);
+          //d($months);
 
 					foreach ($months as $time)
 					{
