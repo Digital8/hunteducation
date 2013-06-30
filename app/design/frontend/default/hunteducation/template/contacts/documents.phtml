@@ -26,10 +26,12 @@
 
 require 'kint/Kint.class.php';
 
+session_start();
+
 //d($_POST);
 //d($_FILES);
 
-if(!isset($_POST)) {
+if(!isset($_POST['email'])) {
 	header("Status: 301");
   header('Location: http://www.hunteducation.com/enrolment') ;  // send to the enrolment page
   exit; 
