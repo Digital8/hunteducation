@@ -1,0 +1,753 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+require 'kint/Kint.class.php';
+
+$_countries = Mage::getResourceModel('directory/country_collection')->loadData()->toOptionArray(false);
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<form action="/documents" id="enrolmentForm" method="post" enctype="multipart/form-data">
+	
+	<ul class="timeline">
+		<li class="active">
+			<span class="icon">1</span>
+			Applicant Details
+		</li>
+		
+		<li>
+			<span class="icon">2</span>
+			Document Upload
+		</li>
+		
+		<li>
+			<span class="icon">3</span>
+			Enrolment Payment
+		</li>
+	</ul>
+	
+	<span class="note right"><em>•</em><span class="mobile-hide">Indicates required fields</span><span class="mobile-display">Required fields</span></span>
+	
+	<h1>Personal Details</h1>
+	
+    <ul class="form-list grid">
+    	<li class="col-2 mobile-col-5">
+    		<div class="input-box">
+    			<select name="title" id="title" class="required-entry">
+    				<option value="" class="label">Title</option>
+    				<option value="miss">Miss</option>
+    				<option value="ms">Ms</option>
+    				<option value="madam">Madam</option>
+    				<option value="mr">Mr</option>
+    				<option value="sir">Sir</option>
+    			</select>
+    		</div>
+    	</li>
+    	
+    	<li class="col-3 tablet-col-4 mobile-col-10">
+    		<label for="last-name">Family name<em>•</em></label>
+    		<div class="input-box">
+    			<input name="last-name" id="last-name" class="input-text required-entry" type="text" />
+    		</div>
+    	</li>
+    	
+		<li class="col-3 tablet-col-4 mobile-col-10">
+			<label for="first-name">Given name<em>•</em></label>
+			<div class="input-box">
+				<input name="first-name" id="first-name" class="input-text required-entry" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-3">
+					<span class="note">DOB<em>•</em></span>
+				</div>
+				
+				<div class="col-2">
+					<label for="dob-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="dob-day" id="dob-day" class="input-text required-entry validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="dob-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="dob-month" id="dob-month" class="input-text required-entry validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-3">
+					<label for="dob-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="dob-year" id="dob-year" class="input-text required-entry validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 mobile-col-10">
+			<div class="input-box">
+				<span class="note">Gender<em>•</em></span>
+				
+				<div class="radio-box">
+					<input type="radio" name="gender" id="gender-male" value="male" />
+					<label for="gender-male">Male</label>
+					
+					<input type="radio" name="gender" id="gender-female" value="female" class="validate-one-required" />
+					<label for="gender-female">Female</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note">Do you hold overseas health cover?<em>•</em></span>
+				
+				<div class="radio-box">
+					<input type="radio" name="health cover" id="health-cover" value="yes" />
+					<label for="health-cover">Yes</label>
+					
+					<input type="radio" name="health cover" id="health-cover-no" value="no" class="validate-one-required" />
+					<label for="health-cover-no">No</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note">Do you have a disability?<em>•</em></span>
+				
+				<div class="radio-box">
+					<input type="radio" name="disability" id="disability" value="yes" />
+					<label for="disability">Yes</label>
+					
+					<input type="radio" name="disability" id="disability-no" value="no" class="validate-one-required" />
+					<label for="disability-no">No</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 mobile-col-10">
+			<label for="agency">Agency (if any)</label>
+		    <div class="input-box">
+		        <input name="agency" id="agency" class="input-text" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-5 mobile-col-10">
+			<label for="address">Correspondence address (in Australia)<em>•</em></label>
+		    <div class="input-box">
+		        <input name="address" id="address" class="input-text required-entry" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-3 mobile-col-6">
+			<div class="input-box">
+				<select name="state" id="state" class="required-entry">
+					<option value="" class="label">State</option>
+					<option value="qld">Queensland</option>
+					<option value="nsw">New South Wales</option>
+					<option value="act">Australian Capital Territory</option>
+					<option value="vic">Victoria</option>
+					<option value="sa">South Australia</option>
+					<option value="wa">Western Australia</option>
+					<option value="nt">Northern Territory</option>
+					<option value="tas">Tasmania</option>
+				</select>
+			</div>
+		</li>
+		
+		<li class="col-2 mobile-col-4">
+			<label for="postcode">Postcode<em>•</em></label>
+		    <div class="input-box">
+		        <input name="postcode" id="postcode" class="input-text validate-number required-entry" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="email">Email address<em>•</em></label>
+		    <div class="input-box">
+		        <input name="email" id="email" class="input-text required-entry validate-email" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<label for="mobile">Mobile Number</label>
+		    <div class="input-box">
+		        <input name="mobile" id="mobile" class="input-text" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<label for="phone">Phone Number<em>•</em></label>
+		    <div class="input-box">
+		        <input name="phone" id="phone" class="input-text required-entry" type="text" />
+		    </div>
+		</li>
+	</ul>
+	
+	<hr />
+	
+	<h1>Passport/Visa Details</h1>
+	
+	<ul class="form-list">
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<select name="birth-country" id="birth-country" class="required-entry">
+					<option value="" class="label">Country of Birth</option>
+					<?php foreach($_countries as $_country): ?>
+			            <option value="<?php echo $_country['value'] ?>">
+			                <?php echo $_country['label'] ?>
+			            </option>
+			        <?php endforeach; ?>
+				</select>
+			</div>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<select name="citizenship-country" id="citizenship-country" class="required-entry">
+					<option value="" class="label">Country of Citizenship</option>
+					<?php foreach($_countries as $_country): ?>
+			            <option value="<?php echo $_country['value'] ?>">
+			                <?php echo $_country['label'] ?>
+			            </option>
+			        <?php endforeach; ?>
+				</select>
+			</div>
+		</li>
+		
+		<li class="col-4 tablet-col-7 mobile-col-10">
+			<label for="passport">Passport Number<em>•</em></label>
+		    <div class="input-box">
+		        <input name="passport" id="passport" class="input-text required-entry" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-6 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note mobile-margin-bottom"><span class="mobile-hide">Do you hold</span><span class="mobile-display">Hold</span> a current Skilled Graduate Temporary Visa Subclass 485?<em>•</em></span>
+				
+				<div class="radio-box">
+					<input type="radio" name="visa-485" id="visa-485" value="yes" />
+					<label for="visa-485">Yes</label>
+					
+					<input type="radio" name="visa-485" id="visa-485-no" value="no" class="validate-one-required" />
+					<label for="visa-485-no">No</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-4 tablet-col-7 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note">If&nbsp;yes,&nbsp;expiry<span class="mobile-hide"> date</span></span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="visa-expiry-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="visa-expiry-day" id="visa-expiry-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="visa-expiry-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="visa-expiry-month" id="visa-expiry-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="visa-expiry-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="visa-expiry-year" id="visa-expiry-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note">If no, have you applied for a 485 Visa?</span>
+				
+				<div class="radio-box">
+					<input type="radio" name="visa-485-applied" id="visa-485-applied" value="yes" />
+					<label for="visa-485-applied">Yes</label>
+					
+					<input type="radio" name="visa-485-applied" id="visa-485-applied-no" value="no" />
+					<label for="visa-485-applied-no">No</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-5 tablet-col-7 mobile-col-10">
+			<div class="input-box">
+				<select name="current-visa-subclass" id="current-visa-subclass">
+					<option value="" class="label">If no, which visa subclass do you currently hold?</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+				</select>
+			</div>
+		</li>
+	</ul>
+	
+	<hr />
+	
+	<h1>Education Details</h1>
+	
+	<ul class="form-list">
+		<li class="col-2 tablet-col-10 mobile-col-10">
+			<h2>In Australia:</h2>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Commenced</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="australia-education-commenced-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="australia-education-commenced-day" id="australia-education-commenced-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="australia-education-commenced-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="australia-education-commenced-month" id="australia-education-commenced-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="australia-education-commenced-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="australia-education-commenced-year" id="australia-education-commenced-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Completed</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="australia-education-completed-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="australia-education-completed-day" id="australia-education-completed-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="australia-education-completed-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="australia-education-completed-month" id="australia-education-completed-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="australia-education-completed-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="australia-education-completed-year" id="australia-education-completed-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-hide mobile-hide"></li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="austalia-education-course-name">Course Name</label>
+		    <div class="input-box">
+		        <input name="austalia-education-course-name" id="austalia-education-course-name" class="input-text" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="austalia-education-institute">Institute</label>
+		    <div class="input-box">
+		        <input name="austalia-education-institute" id="austalia-education-institute" class="input-text" type="text" />
+		    </div>
+		</li>
+	</ul>
+	
+	<hr class="perforated" />
+	
+	<ul class="form-list">
+		<li class="col-2 tablet-col-10 mobile-col-10">
+			<h2>Overseas:</h2>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Commenced</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="overseas-education-commenced-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="overseas-education-commenced-day" id="overseas-education-commenced-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="overseas-education-commenced-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="overseas-education-commenced-month" id="overseas-education-commenced-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="overseas-education-commenced-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="overseas-education-commenced-year" id="overseas-education-commenced-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Completed</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="overseas-education-completed-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="overseas-education-completed-day" id="overseas-education-completed-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="overseas-education-completed-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="overseas-education-completed-month" id="overseas-education-completed-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="overseas-education-completed-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="overseas-education-completed-year" id="overseas-education-completed-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-hide mobile-hide"></li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="overseas-education-course-name">Course Name</label>
+		    <div class="input-box">
+		        <input name="overseas-education-course-name" id="overseas-education-course-name" class="input-text" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="overseas-education-institute">Institute</label>
+		    <div class="input-box">
+		        <input name="overseas-education-institute" id="overseas-education-institute" class="input-text" type="text" />
+		    </div>
+		</li>
+	</ul>
+	
+	<hr class="perforated" />
+	
+	<ul class="form-list">
+		<li class="col-2 tablet-col-10 mobile-col-10">
+			<h2>IELTS:</h2>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Commenced</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="ielts-education-commenced-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="ielts-education-commenced-day" id="ielts-education-commenced-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="ielts-education-commenced-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="ielts-education-commenced-month" id="ielts-education-commenced-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="ielts-education-commenced-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="ielts-education-commenced-year" id="ielts-education-commenced-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-6 mobile-col-4">
+					<span class="note"><span class="mobile-hide">Date </span>Completed</span>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="ielts-education-completed-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="ielts-education-completed-day" id="ielts-education-completed-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-1 mobile-col-2">
+					<label for="ielts-education-completed-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="ielts-education-completed-month" id="ielts-education-completed-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="ielts-education-completed-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="ielts-education-completed-year" id="ielts-education-completed-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-hide mobile-hide"></li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="ielts-education-course-name">Course Name</label>
+		    <div class="input-box">
+		        <input name="ielts-education-course-name" id="ielts-education-course-name" class="input-text" type="text" />
+		    </div>
+		</li>
+		
+		<li class="col-4 tablet-col-5 mobile-col-10">
+			<label for="ielts-education-institute">Institute</label>
+		    <div class="input-box">
+		        <input name="ielts-education-institute" id="ielts-education-institute" class="input-text" type="text" />
+		    </div>
+		</li>
+	</ul>
+	
+	<hr class="perforated" />
+	
+	<ul class="form-list">
+		<li class="col-2 tablet-col-10 mobile-col-10">
+			<h2>Professional Assessment:</h2>
+		</li>
+		
+		<li class="col-8 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note mobile-margin-bottom">Have you had your qualification assessed by ICA, IPA or CPA?<em>•</em></span>
+				
+				<div class="radio-box">
+					<input type="radio" name="qualification-assessment" id="qualification-assessment" value="yes" />
+					<label for="qualification-assessment">Yes</label>
+					
+					<input type="radio" name="qualification-assessment" id="qualification-assessment-no" value="no" class="validate-one-required" />
+					<label for="qualification-assessment-no">No</label>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-hide mobile-hide"></li>
+		
+		<li class="col-8 tablet-col-10 mobile-col-10">
+			<div class="input-box">
+				<span class="note">If yes, please provide details below.</span>
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-hide mobile-hide"></li>
+		
+		<li class="col-2 tablet-col-10 mobile-col-10">
+			<label for="assessing-body">Assessing body</label>
+			<div class="input-box">
+				<input name="assessing-body" id="assessing-body" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<div class="col-4">
+					<span class="note">Date<span class="mobile-hide"> assessed</span></span>
+				</div>
+				
+				<div class="col-2">
+					<label for="assessment-day" class="tiny">DD</label>
+				    <div class="input-box">
+				        <input name="assessment-day" id="assessment-day" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="assessment-month" class="tiny">MM</label>
+				    <div class="input-box">
+				        <input name="assessment-month" id="assessment-month" class="input-text validate-number join-next join-prev tiny" maxlength="2" type="text" />
+				    </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="assessment-year" class="tiny">YYYY</label>
+				    <div class="input-box">
+				        <input name="assessment-year" id="assessment-year" class="input-text validate-number join-prev tiny" maxlength="4" type="text" />
+				    </div>
+				</div>
+			</div>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<label for="subjects-remaining">Subjects remaining to complete</label>
+			<div class="input-box">
+				<input name="subjects-remaining" id="subjects-remaining" class="input-text" type="text" />
+			</div>
+		</li>
+	</ul>
+	
+	<hr />
+	
+	<h1>Referral</h1>
+	
+	<ul class="form-list">
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<select name="referral-where" id="referral-where" class="required-entry">
+					<option value="" class="label">Where did you hear about Hunt?</option>
+					<option value="radio">Radio</option>
+					<option value="friend">Friend</option>
+					<option value="print">Print Media</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+		</li>
+		
+		<script>
+			$j(document).ready(function(){
+				// hide all options
+				$j(".hide-option").hide();
+				
+				$j("#referral-where").on("change", function(){
+					var scope = $j(this).closest("ul");
+					
+					// hide all options
+					$j(".hide-option", scope).hide();
+					
+					// display relevant options
+					$j(".show-option-" + $j(this).val(), scope).show();
+				});
+			});
+		</script>
+		
+		<!-- radio station -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-radio">
+			<label for="radio-station">Which radio station?</label>
+			<div class="input-box">
+				<input name="radio-station" id="radio-station" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- print -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-print">
+			<label for="print-media">Which print media?</label>
+			<div class="input-box">
+				<input name="print-media" id="print-media" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- friend -->
+		<li class="col-3 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-name">Name</label>
+			<div class="input-box">
+				<input name="friend-name" id="friend-name" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-email">Email Address</label>
+			<div class="input-box">
+				<input name="friend-email" id="friend-email" class="input-text validate-email" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-phone">Phone Number</label>
+			<div class="input-box">
+				<input name="friend-phone" id="friend-phone" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- other -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-other">
+			<label for="other-referral">Please provide details</label>
+			<div class="input-box">
+				<input name="other-referral" id="other-referral" class="input-text" type="text" />
+			</div>
+		</li>
+	</ul>
+    
+  <ul class="timeline">
+  	<li class="active">
+  		<span class="icon">1</span>
+  		Applicant Details
+  	</li>
+  	
+  	<li>
+  		<span class="icon">2</span>
+  		Document Upload
+  	</li>
+  	
+  	<li>
+  		<span class="icon">3</span>
+  		Enrolment Payment
+  	</li>
+  </ul>
+  
+  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+  
+  <button type="submit" class="button right">Next Step: Document Upload</button>
+    
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('enrolmentForm', true);
+//]]>
+</script>

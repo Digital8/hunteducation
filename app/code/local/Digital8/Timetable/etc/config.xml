@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<modules>
+		<Digital8_Timetable>
+			<version>0.0.1</version>
+		</Digital8_Timetable>
+	</modules>
+	<global>
+		<resources>
+			<digital8_timetable_setup>
+				<setup>
+					<module>Digital8_Timetable</module>
+					<class>Digital8_Timetable_Model_Resource_Setup</class>
+				</setup>
+			</digital8_timetable_setup>
+		</resources>
+		<blocks>
+			<timetable>
+				<class>Digital8_Timetable_Block</class>
+			</timetable>
+		</blocks>
+		<helpers>
+			<timetable>
+				<class>Digital8_Timetable_Helper</class>
+			</timetable>
+		</helpers>
+		<models>
+			<timetable>
+				<class>Digital8_Timetable_Model</class>
+				<resourceModel>timetable_resource</resourceModel>
+			</timetable>
+			<timetable_resource>
+				<class>Digital8_Timetable_Model_Resource</class>
+				<entities>
+					<intake>
+						<table>timetable_intake</table>
+					</intake>
+					<intake_store>
+						<table>timetable_intake_store</table>
+					</intake_store>
+					<location>
+						<table>timetable_location</table>
+					</location>
+					<location_store>
+						<table>timetable_location_store</table>
+					</location_store>
+					<enrolment>
+						<table>timetable_enrolment</table>
+					</enrolment>
+					<enrolment_store>
+						<table>timetable_enrolment_store</table>
+					</enrolment_store>
+				</entities>
+			</timetable_resource>
+		</models>
+		<events>
+			<controller_front_init_routers>
+				<observers>
+					<digital8_timetable>
+						<class>Digital8_Timetable_Controller_Router</class>
+						<method>initControllerRouters</method>
+					</digital8_timetable>
+				</observers>
+			</controller_front_init_routers>
+		</events>
+	</global>
+	<adminhtml>
+		<layout>
+			<updates>
+				<digital8_timetable>
+					<file>digital8_timetable.xml</file>
+				</digital8_timetable>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Digital8_Timetable>
+					<files>
+						<default>Digital8_Timetable.csv</default>
+					</files>
+				</Digital8_Timetable>
+			</modules>
+		</translate>
+	</adminhtml>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<Digital8_Timetable before="Mage_Adminhtml">Digital8_Timetable_Adminhtml</Digital8_Timetable>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<frontend>
+		<routers>
+			<timetable>
+				<use>standard</use>
+				<args>
+					<module>Digital8_Timetable</module>
+					<frontName>timetable</frontName>
+				</args>
+			</timetable>
+		</routers>
+		<layout>
+			<updates>
+				<digital8_timetable>
+					<file>digital8_timetable.xml</file>
+				</digital8_timetable>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Digital8_Timetable>
+					<files>
+						<default>Digital8_Timetable.csv</default>
+					</files>
+				</Digital8_Timetable>
+			</modules>
+		</translate>
+	</frontend>
+	<default>
+		<timetable>
+			<intake>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Intakes</meta_title>
+			</intake>
+			<location>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Locations</meta_title>
+			</location>
+			<enrolment>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Enrolments</meta_title>
+			</enrolment>
+		</timetable>
+	</default>
+</config>

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+			<import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+			<complexType name="enrollmentsIntakeListEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="location_id" type="xsd:string" minOccurs="0" />
+					<element name="date" type="xsd:string" minOccurs="1" />
+					<element name="enrolled" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+			<complexType name="enrollmentsIntakeListEntityArray">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="typens:enrollmentsIntakeListEntity[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="enrollmentsIntakeAddEntity">
+				<all>
+					<element name="location_id" type="xsd:string" minOccurs="0" />
+					<element name="date" type="xsd:string" minOccurs="1" />
+					<element name="enrolled" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsIntakeUpdateEntity">
+				<all>
+					<element name="location_id" type="xsd:string" minOccurs="0" />
+					<element name="date" type="xsd:string" minOccurs="1" />
+					<element name="enrolled" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsIntakeInfoEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="location_id" type="xsd:string" minOccurs="0" />
+					<element name="date" type="xsd:string" minOccurs="1" />
+					<element name="enrolled" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+					<complexType name="enrollmentsLocationListEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="suburb" type="xsd:string" minOccurs="1" />
+					<element name="state" type="xsd:string" minOccurs="1" />
+					<element name="address" type="xsd:string" minOccurs="1" />
+					<element name="googlemaps" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+			<complexType name="enrollmentsLocationListEntityArray">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="typens:enrollmentsLocationListEntity[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="enrollmentsLocationAddEntity">
+				<all>
+					<element name="suburb" type="xsd:string" minOccurs="1" />
+					<element name="state" type="xsd:string" minOccurs="1" />
+					<element name="address" type="xsd:string" minOccurs="1" />
+					<element name="googlemaps" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsLocationUpdateEntity">
+				<all>
+					<element name="suburb" type="xsd:string" minOccurs="1" />
+					<element name="state" type="xsd:string" minOccurs="1" />
+					<element name="address" type="xsd:string" minOccurs="1" />
+					<element name="googlemaps" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsLocationInfoEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="suburb" type="xsd:string" minOccurs="1" />
+					<element name="state" type="xsd:string" minOccurs="1" />
+					<element name="address" type="xsd:string" minOccurs="1" />
+					<element name="googlemaps" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+					<complexType name="enrollmentsEnrollmentListEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="intake_id" type="xsd:string" minOccurs="0" />
+					<element name="uuid" type="xsd:string" minOccurs="1" />
+					<element name="xml" type="xsd:string" minOccurs="1" />
+					<element name="approved" type="xsd:string" minOccurs="1" />
+					<element name="email" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+			<complexType name="enrollmentsEnrollmentListEntityArray">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="typens:enrollmentsEnrollmentListEntity[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="enrollmentsEnrollmentAddEntity">
+				<all>
+					<element name="intake_id" type="xsd:string" minOccurs="0" />
+					<element name="uuid" type="xsd:string" minOccurs="1" />
+					<element name="xml" type="xsd:string" minOccurs="1" />
+					<element name="approved" type="xsd:string" minOccurs="1" />
+					<element name="email" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsEnrollmentUpdateEntity">
+				<all>
+					<element name="intake_id" type="xsd:string" minOccurs="0" />
+					<element name="uuid" type="xsd:string" minOccurs="1" />
+					<element name="xml" type="xsd:string" minOccurs="1" />
+					<element name="approved" type="xsd:string" minOccurs="1" />
+					<element name="email" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+				</all>
+			</complexType>
+			<complexType name="enrollmentsEnrollmentInfoEntity">
+				<all>
+					<element name="entity_id" type="xsd:string" minOccurs="1" />
+					<element name="intake_id" type="xsd:string" minOccurs="0" />
+					<element name="uuid" type="xsd:string" minOccurs="1" />
+					<element name="xml" type="xsd:string" minOccurs="1" />
+					<element name="approved" type="xsd:string" minOccurs="1" />
+					<element name="email" type="xsd:string" minOccurs="1" />
+					<element name="name" type="xsd:string" minOccurs="1" />
+					<element name="url_key" type="xsd:string" minOccurs="0" />
+					<element name="status" type="xsd:string" minOccurs="0" />
+					<element name="in_rss" type="xsd:string" minOccurs="0" />
+					<element name="meta_title" type="xsd:string" minOccurs="0" />
+					<element name="meta_keywords" type="xsd:string" minOccurs="0" />
+					<element name="meta_description" type="xsd:string" minOccurs="0" />
+
+					<element name="created_at" type="xsd:string" minOccurs="1" />
+					<element name="updated_at" type="xsd:string" minOccurs="1" />
+				</all>
+			</complexType>
+				</schema>
+	</types>
+	<message name="enrollmentsIntakeListRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="filters" type="typens:filters"/>
+	</message>
+	<message name="enrollmentsIntakeListResponse">
+		<part name="result" type="typens:enrollmentsIntakeListEntityArray" />
+	</message>
+	<message name="enrollmentsIntakeInfoRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="intakeId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsIntakeInfoResponse">
+		<part name="result" type="typens:enrollmentsIntakeInfoEntity" />
+	</message>
+	<message name="enrollmentsIntakeAddRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsIntakeAddEntity" />
+	</message>
+	<message name="enrollmentsIntakeAddResponse">
+		<part name="result" type="xsd:int"/>
+	</message>
+	<message name="enrollmentsIntakeUpdateRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="intakeId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsIntakeUpdateEntity" />
+	</message>
+	<message name="enrollmentsIntakeUpdateResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+	<message name="enrollmentsIntakeRemoveRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="intakeId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsIntakeRemoveResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+		<message name="enrollmentsLocationListRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="filters" type="typens:filters"/>
+	</message>
+	<message name="enrollmentsLocationListResponse">
+		<part name="result" type="typens:enrollmentsLocationListEntityArray" />
+	</message>
+	<message name="enrollmentsLocationInfoRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="locationId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsLocationInfoResponse">
+		<part name="result" type="typens:enrollmentsLocationInfoEntity" />
+	</message>
+	<message name="enrollmentsLocationAddRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsLocationAddEntity" />
+	</message>
+	<message name="enrollmentsLocationAddResponse">
+		<part name="result" type="xsd:int"/>
+	</message>
+	<message name="enrollmentsLocationUpdateRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="locationId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsLocationUpdateEntity" />
+	</message>
+	<message name="enrollmentsLocationUpdateResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+	<message name="enrollmentsLocationRemoveRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="locationId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsLocationRemoveResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+		<message name="enrollmentsEnrollmentListRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="filters" type="typens:filters"/>
+	</message>
+	<message name="enrollmentsEnrollmentListResponse">
+		<part name="result" type="typens:enrollmentsEnrollmentListEntityArray" />
+	</message>
+	<message name="enrollmentsEnrollmentInfoRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="enrollmentId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsEnrollmentInfoResponse">
+		<part name="result" type="typens:enrollmentsEnrollmentInfoEntity" />
+	</message>
+	<message name="enrollmentsEnrollmentAddRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsEnrollmentAddEntity" />
+	</message>
+	<message name="enrollmentsEnrollmentAddResponse">
+		<part name="result" type="xsd:int"/>
+	</message>
+	<message name="enrollmentsEnrollmentUpdateRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="enrollmentId" type="xsd:string" />
+		<part name="data" type="typens:enrollmentsEnrollmentUpdateEntity" />
+	</message>
+	<message name="enrollmentsEnrollmentUpdateResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+	<message name="enrollmentsEnrollmentRemoveRequest">
+		<part name="sessionId" type="xsd:string" />
+		<part name="enrollmentId" type="xsd:string" />
+	</message>
+	<message name="enrollmentsEnrollmentRemoveResponse">
+		<part name="result" type="xsd:boolean" />
+	</message>
+		<portType name="{{var wsdl.handler}}PortType">
+		<operation name="enrollmentsIntakeList">
+			<documentation>Retrieve list of intake</documentation>
+			<input message="typens:enrollmentsIntakeListRequest" />
+			<output message="typens:enrollmentsIntakeListResponse" />
+		</operation>
+		<operation name="enrollmentsIntakeInfo">
+			<documentation>Retrieve intake info</documentation>
+			<input message="typens:enrollmentsIntakeInfoRequest" />
+			<output message="typens:enrollmentsIntakeInfoResponse" />
+		</operation>
+		<operation name="enrollmentsIntakeAdd">
+			<documentation>Add intake</documentation>
+			<input message="typens:enrollmentsIntakeAddRequest" />
+			<output message="typens:enrollmentsIntakeAddResponse" />
+		</operation>
+		<operation name="enrollmentsIntakeUpdate">
+			<documentation>Update intake</documentation>
+			<input message="typens:enrollmentsIntakeUpdateRequest" />
+			<output message="typens:enrollmentsIntakeUpdateResponse" />
+		</operation>
+		<operation name="enrollmentsIntakeRemove">
+			<documentation>Remove intake</documentation>
+			<input message="typens:enrollmentsIntakeRemoveRequest" />
+			<output message="typens:enrollmentsIntakeRemoveResponse" />
+		</operation>
+			<operation name="enrollmentsLocationList">
+			<documentation>Retrieve list of location</documentation>
+			<input message="typens:enrollmentsLocationListRequest" />
+			<output message="typens:enrollmentsLocationListResponse" />
+		</operation>
+		<operation name="enrollmentsLocationInfo">
+			<documentation>Retrieve location info</documentation>
+			<input message="typens:enrollmentsLocationInfoRequest" />
+			<output message="typens:enrollmentsLocationInfoResponse" />
+		</operation>
+		<operation name="enrollmentsLocationAdd">
+			<documentation>Add location</documentation>
+			<input message="typens:enrollmentsLocationAddRequest" />
+			<output message="typens:enrollmentsLocationAddResponse" />
+		</operation>
+		<operation name="enrollmentsLocationUpdate">
+			<documentation>Update location</documentation>
+			<input message="typens:enrollmentsLocationUpdateRequest" />
+			<output message="typens:enrollmentsLocationUpdateResponse" />
+		</operation>
+		<operation name="enrollmentsLocationRemove">
+			<documentation>Remove location</documentation>
+			<input message="typens:enrollmentsLocationRemoveRequest" />
+			<output message="typens:enrollmentsLocationRemoveResponse" />
+		</operation>
+			<operation name="enrollmentsEnrollmentList">
+			<documentation>Retrieve list of enrollment</documentation>
+			<input message="typens:enrollmentsEnrollmentListRequest" />
+			<output message="typens:enrollmentsEnrollmentListResponse" />
+		</operation>
+		<operation name="enrollmentsEnrollmentInfo">
+			<documentation>Retrieve enrollment info</documentation>
+			<input message="typens:enrollmentsEnrollmentInfoRequest" />
+			<output message="typens:enrollmentsEnrollmentInfoResponse" />
+		</operation>
+		<operation name="enrollmentsEnrollmentAdd">
+			<documentation>Add enrollment</documentation>
+			<input message="typens:enrollmentsEnrollmentAddRequest" />
+			<output message="typens:enrollmentsEnrollmentAddResponse" />
+		</operation>
+		<operation name="enrollmentsEnrollmentUpdate">
+			<documentation>Update enrollment</documentation>
+			<input message="typens:enrollmentsEnrollmentUpdateRequest" />
+			<output message="typens:enrollmentsEnrollmentUpdateResponse" />
+		</operation>
+		<operation name="enrollmentsEnrollmentRemove">
+			<documentation>Remove enrollment</documentation>
+			<input message="typens:enrollmentsEnrollmentRemoveRequest" />
+			<output message="typens:enrollmentsEnrollmentRemoveResponse" />
+		</operation>
+		</portType>
+	<binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="enrollmentsIntakeList">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsIntakeInfo">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsIntakeAdd">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsIntakeUpdate">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsIntakeRemove">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+			<operation name="enrollmentsLocationList">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsLocationInfo">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsLocationAdd">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsLocationUpdate">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsLocationRemove">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+			<operation name="enrollmentsEnrollmentList">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsEnrollmentInfo">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsEnrollmentAdd">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsEnrollmentUpdate">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		<operation name="enrollmentsEnrollmentRemove">
+			<soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+			<input>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+		</binding>
+	<service name="{{var wsdl.name}}Service">
+		<port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+			<soap:address location="{{var wsdl.url}}" />
+		</port>
+	</service>
+</definitions>

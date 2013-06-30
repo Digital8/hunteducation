@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Enrollments extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Enrollments
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<enrollments translate="title" module="enrollments">
+										<title>Enrollments</title>
+									</enrollments>
+								</children>
+							</config>
+						</children>
+					</system>
+					<enrollments translate="title" module="enrollments">
+						<title>Enrollments</title>
+						<children>
+							<intake translate="title" module="enrollments">
+								<title>Intakes</title>
+							</intake>
+							<location translate="title" module="enrollments">
+								<title>Locations</title>
+							</location>
+							<enrollment translate="title" module="enrollments">
+								<title>Enrollments</title>
+							</enrollment>
+						</children>
+					</enrollments>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<menu>
+		<enrollments translate="title" module="enrollments">
+			<title>Enrollments</title>
+			<sort_order>12</sort_order>
+			<depends>
+				<module>Digital8_Enrollments</module>
+		 	</depends>
+		 	<children>
+				<intake translate="title" module="enrollments">
+					<title>Intakes</title>
+					<action>adminhtml/enrollments_intake</action>
+					<sort_order>0</sort_order>
+				</intake>
+				<location translate="title" module="enrollments">
+					<title>Locations</title>
+					<action>adminhtml/enrollments_location</action>
+					<sort_order>10</sort_order>
+				</location>
+				<enrollment translate="title" module="enrollments">
+					<title>Enrollments</title>
+					<action>adminhtml/enrollments_enrollment</action>
+					<sort_order>20</sort_order>
+				</enrollment>
+			</children>
+		</enrollments>
+	</menu>
+</config>

@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Enrollments2 extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Enrollments2
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<api>
+		<resources>
+			<enrollments2_intake translate="title" module="enrollments2">
+				<title>Intake API</title>
+				<model>enrollments2/intake_api</model>
+				<acl>enrollments2/intake</acl>
+				<methods>
+					<list translate="title" module="enrollments2">
+						<title>Retrieve list of intakes</title>
+						<method>items</method>
+						<acl>enrollments2/intake/list</acl>
+					</list>
+					<info translate="title" module="enrollments2">
+						<title>Retrieve intake info</title>
+						<acl>enrollments2/intake/info</acl>
+					</info>
+					<add translate="title" module="enrollments2">
+						<title>Add intake</title>
+						<acl>enrollments2/intake/add</acl>
+					</add>
+					<update translate="title" module="enrollments2">
+						<title>Update intake</title>
+						<acl>enrollments2/intake/update</acl>
+					</update>
+					<remove translate="title" module="enrollments2">
+						<title>Remove intake</title>
+						<acl>enrollments2/intake/remove</acl>
+					</remove>
+				</methods>
+				<faults module="enrollments2">
+					<intake_not_exists>
+						<code>101</code>
+						<message>Requested intake does not exist.</message>
+					</intake_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving intake. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing intake. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</enrollments2_intake>
+			<enrollments2_location translate="title" module="enrollments2">
+				<title>Location API</title>
+				<model>enrollments2/location_api</model>
+				<acl>enrollments2/location</acl>
+				<methods>
+					<list translate="title" module="enrollments2">
+						<title>Retrieve list of locations</title>
+						<method>items</method>
+						<acl>enrollments2/location/list</acl>
+					</list>
+					<info translate="title" module="enrollments2">
+						<title>Retrieve location info</title>
+						<acl>enrollments2/location/info</acl>
+					</info>
+					<add translate="title" module="enrollments2">
+						<title>Add location</title>
+						<acl>enrollments2/location/add</acl>
+					</add>
+					<update translate="title" module="enrollments2">
+						<title>Update location</title>
+						<acl>enrollments2/location/update</acl>
+					</update>
+					<remove translate="title" module="enrollments2">
+						<title>Remove location</title>
+						<acl>enrollments2/location/remove</acl>
+					</remove>
+				</methods>
+				<faults module="enrollments2">
+					<location_not_exists>
+						<code>101</code>
+						<message>Requested location does not exist.</message>
+					</location_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving location. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing location. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</enrollments2_location>
+			<enrollments2_enrollment translate="title" module="enrollments2">
+				<title>Enrollment API</title>
+				<model>enrollments2/enrollment_api</model>
+				<acl>enrollments2/enrollment</acl>
+				<methods>
+					<list translate="title" module="enrollments2">
+						<title>Retrieve list of enrollments</title>
+						<method>items</method>
+						<acl>enrollments2/enrollment/list</acl>
+					</list>
+					<info translate="title" module="enrollments2">
+						<title>Retrieve enrollment info</title>
+						<acl>enrollments2/enrollment/info</acl>
+					</info>
+					<add translate="title" module="enrollments2">
+						<title>Add enrollment</title>
+						<acl>enrollments2/enrollment/add</acl>
+					</add>
+					<update translate="title" module="enrollments2">
+						<title>Update enrollment</title>
+						<acl>enrollments2/enrollment/update</acl>
+					</update>
+					<remove translate="title" module="enrollments2">
+						<title>Remove enrollment</title>
+						<acl>enrollments2/enrollment/remove</acl>
+					</remove>
+				</methods>
+				<faults module="enrollments2">
+					<enrollment_not_exists>
+						<code>101</code>
+						<message>Requested enrollment does not exist.</message>
+					</enrollment_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving enrollment. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing enrollment. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</enrollments2_enrollment>
+		</resources>
+		<resources_alias>
+			<intake>enrollments2_intake</intake>
+			<location>enrollments2_location</location>
+			<enrollment>enrollments2_enrollment</enrollment>
+		</resources_alias>
+		<v2>
+			<resources_function_prefix>
+				<intake>enrollments2Intake</intake>
+				<location>enrollments2Location</location>
+				<enrollment>enrollments2Enrollment</enrollment>
+			</resources_function_prefix>
+		</v2>
+		<acl>
+			<resources>
+				<enrollments2 translate="title" module="enrollments2">
+					<title>Enrollments2</title>
+					<intake translate="title" module="enrollments2">
+						<title>Intake</title>
+						<sort_order>110</sort_order>
+						<list translate="title" module="enrollments2">
+							<title>List</title>
+						</list>
+						<info translate="title" module="enrollments2">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="enrollments2">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="enrollments2">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="enrollments2">
+							<title>Remove</title>
+						</remove>
+					</intake>
+					<location translate="title" module="enrollments2">
+						<title>Location</title>
+						<sort_order>120</sort_order>
+						<list translate="title" module="enrollments2">
+							<title>List</title>
+						</list>
+						<info translate="title" module="enrollments2">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="enrollments2">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="enrollments2">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="enrollments2">
+							<title>Remove</title>
+						</remove>
+					</location>
+					<enrollment translate="title" module="enrollments2">
+						<title>Enrollment</title>
+						<sort_order>130</sort_order>
+						<list translate="title" module="enrollments2">
+							<title>List</title>
+						</list>
+						<info translate="title" module="enrollments2">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="enrollments2">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="enrollments2">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="enrollments2">
+							<title>Remove</title>
+						</remove>
+					</enrollment>
+				</enrollments2>
+			</resources>
+		</acl>
+	</api>
+</config>

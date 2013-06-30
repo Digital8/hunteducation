@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Enrollments2 extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Enrollments2
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<widgets>
+	<enrollments2_intake_view type="enrollments2/intake_widget_view" translate="name description" module="enrollments2">
+		<name>Intake view</name>
+		<description>Intake view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<intake_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Intake</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_intake_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Intake</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</intake_id>
+		</parameters>
+	</enrollments2_intake_view>
+	<enrollments2_intake_link type="enrollments2/intake_widget_link" translate="name description" module="enrollments2">
+		<name>Intake link</name>
+		<description>Intake link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<intake_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Intake</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_intake_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Intake</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</intake_id>
+		</parameters>
+	</enrollments2_intake_link>
+	<enrollments2_location_view type="enrollments2/location_widget_view" translate="name description" module="enrollments2">
+		<name>Location view</name>
+		<description>Location view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<location_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Location</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_location_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Location</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</location_id>
+		</parameters>
+	</enrollments2_location_view>
+	<enrollments2_location_link type="enrollments2/location_widget_link" translate="name description" module="enrollments2">
+		<name>Location link</name>
+		<description>Location link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<location_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Location</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_location_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Location</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</location_id>
+		</parameters>
+	</enrollments2_location_link>
+	<enrollments2_enrollment_view type="enrollments2/enrollment_widget_view" translate="name description" module="enrollments2">
+		<name>Enrollment view</name>
+		<description>Enrollment view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<enrollment_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Enrollment</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_enrollment_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Enrollment</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</enrollment_id>
+		</parameters>
+	</enrollments2_enrollment_view>
+	<enrollments2_enrollment_link type="enrollments2/enrollment_widget_link" translate="name description" module="enrollments2">
+		<name>Enrollment link</name>
+		<description>Enrollment link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<enrollment_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Enrollment</label>
+				<type>label</type>
+				<helper_block>
+					<type>enrollments2/adminhtml_enrollment_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Enrollment</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</enrollment_id>
+		</parameters>
+	</enrollments2_enrollment_link>
+</widgets>

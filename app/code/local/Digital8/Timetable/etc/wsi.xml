@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	 xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	 name="{{var wsdl.name}}"
+	 targetNamespace="urn:{{var wsdl.name}}">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+			<xsd:complexType name="timetableIntakeListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:timetableIntakeListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableIntakeListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableIntakeAddEntity">
+				<xsd:sequence>
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableIntakeUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableIntakeInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="timetableIntakeListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableIntakeListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableIntakeInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableIntakeAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableIntakeUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableIntakeRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+					<xsd:complexType name="timetableLocationListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:timetableLocationListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableLocationListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableLocationAddEntity">
+				<xsd:sequence>
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableLocationUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableLocationInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="timetableLocationListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableLocationListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableLocationInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableLocationAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableLocationUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableLocationRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+					<xsd:complexType name="timetableEnrolmentListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:timetableEnrolmentListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableEnrolmentListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableEnrolmentAddEntity">
+				<xsd:sequence>
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableEnrolmentUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="timetableEnrolmentInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="timetableEnrolmentListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableEnrolmentListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrolmentId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:timetableEnrolmentInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableEnrolmentAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrolmentId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:timetableEnrolmentUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrolmentId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="timetableEnrolmentRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+				</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="timetableIntakeListRequest">
+		<wsdl:part name="parameters" element="typens:timetableIntakeListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeListResponse">
+		<wsdl:part name="parameters" element="typens:timetableIntakeListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeInfoRequest">
+		<wsdl:part name="parameters" element="typens:timetableIntakeInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeInfoResponse">
+		<wsdl:part name="parameters" element="typens:timetableIntakeInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeAddRequest">
+		<wsdl:part name="parameters" element="typens:timetableIntakeAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeAddResponse">
+		<wsdl:part name="parameters" element="typens:timetableIntakeAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeUpdateRequest">
+		<wsdl:part name="parameters" element="typens:timetableIntakeUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeUpdateResponse">
+		<wsdl:part name="parameters" element="typens:timetableIntakeUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeRemoveRequest">
+		<wsdl:part name="parameters" element="typens:timetableIntakeRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableIntakeRemoveResponse">
+		<wsdl:part name="parameters" element="typens:timetableIntakeRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationListRequest">
+		<wsdl:part name="parameters" element="typens:timetableLocationListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationListResponse">
+		<wsdl:part name="parameters" element="typens:timetableLocationListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationInfoRequest">
+		<wsdl:part name="parameters" element="typens:timetableLocationInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationInfoResponse">
+		<wsdl:part name="parameters" element="typens:timetableLocationInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationAddRequest">
+		<wsdl:part name="parameters" element="typens:timetableLocationAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationAddResponse">
+		<wsdl:part name="parameters" element="typens:timetableLocationAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableLocationUpdateRequest">
+		<wsdl:part name="parameters" element="typens:timetableLocationUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationUpdateResponse">
+		<wsdl:part name="parameters" element="typens:timetableLocationUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableLocationRemoveRequest">
+		<wsdl:part name="parameters" element="typens:timetableLocationRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableLocationRemoveResponse">
+		<wsdl:part name="parameters" element="typens:timetableLocationRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentListRequest">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentListResponse">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentInfoRequest">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentInfoResponse">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentAddRequest">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentAddResponse">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentUpdateRequest">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentUpdateResponse">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentRemoveRequest">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="timetableEnrolmentRemoveResponse">
+		<wsdl:part name="parameters" element="typens:timetableEnrolmentRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:portType name="{{var wsdl.handler}}PortType">
+		<wsdl:operation name="timetableIntakeList">
+			<wsdl:documentation>Retrieve list of intakes</wsdl:documentation>
+			<wsdl:input message="typens:timetableIntakeListRequest" />
+			<wsdl:output message="typens:timetableIntakeListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeInfo">
+			<wsdl:documentation>Retrieve intake info</wsdl:documentation>
+			<wsdl:input message="typens:timetableIntakeInfoRequest" />
+			<wsdl:output message="typens:timetableIntakeInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeAdd">
+			<wsdl:documentation>Add intake</wsdl:documentation>
+			<wsdl:input message="typens:timetableIntakeAddRequest" />
+			<wsdl:output message="typens:timetableIntakeAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeUpdate">
+			<wsdl:documentation>Update intake</wsdl:documentation>
+			<wsdl:input message="typens:timetableIntakeUpdateRequest" />
+			<wsdl:output message="typens:timetableIntakeUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeRemove">
+			<wsdl:documentation>Remove intake</wsdl:documentation>
+			<wsdl:input message="typens:timetableIntakeRemoveRequest" />
+			<wsdl:output message="typens:timetableIntakeRemoveResponse" />
+		</wsdl:operation>
+			<wsdl:operation name="timetableLocationList">
+			<wsdl:documentation>Retrieve list of locations</wsdl:documentation>
+			<wsdl:input message="typens:timetableLocationListRequest" />
+			<wsdl:output message="typens:timetableLocationListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationInfo">
+			<wsdl:documentation>Retrieve location info</wsdl:documentation>
+			<wsdl:input message="typens:timetableLocationInfoRequest" />
+			<wsdl:output message="typens:timetableLocationInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationAdd">
+			<wsdl:documentation>Add location</wsdl:documentation>
+			<wsdl:input message="typens:timetableLocationAddRequest" />
+			<wsdl:output message="typens:timetableLocationAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationUpdate">
+			<wsdl:documentation>Update location</wsdl:documentation>
+			<wsdl:input message="typens:timetableLocationUpdateRequest" />
+			<wsdl:output message="typens:timetableLocationUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationRemove">
+			<wsdl:documentation>Remove location</wsdl:documentation>
+			<wsdl:input message="typens:timetableLocationRemoveRequest" />
+			<wsdl:output message="typens:timetableLocationRemoveResponse" />
+		</wsdl:operation>
+			<wsdl:operation name="timetableEnrolmentList">
+			<wsdl:documentation>Retrieve list of enrolments</wsdl:documentation>
+			<wsdl:input message="typens:timetableEnrolmentListRequest" />
+			<wsdl:output message="typens:timetableEnrolmentListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentInfo">
+			<wsdl:documentation>Retrieve enrolment info</wsdl:documentation>
+			<wsdl:input message="typens:timetableEnrolmentInfoRequest" />
+			<wsdl:output message="typens:timetableEnrolmentInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentAdd">
+			<wsdl:documentation>Add enrolment</wsdl:documentation>
+			<wsdl:input message="typens:timetableEnrolmentAddRequest" />
+			<wsdl:output message="typens:timetableEnrolmentAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentUpdate">
+			<wsdl:documentation>Update enrolment</wsdl:documentation>
+			<wsdl:input message="typens:timetableEnrolmentUpdateRequest" />
+			<wsdl:output message="typens:timetableEnrolmentUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentRemove">
+			<wsdl:documentation>Remove enrolment</wsdl:documentation>
+			<wsdl:input message="typens:timetableEnrolmentRemoveRequest" />
+			<wsdl:output message="typens:timetableEnrolmentRemoveResponse" />
+		</wsdl:operation>
+		</wsdl:portType>
+	<wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="timetableIntakeList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableIntakeRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="timetableLocationList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableLocationRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="timetableEnrolmentList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="timetableEnrolmentRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		</wsdl:binding>
+	<wsdl:service name="{{var wsdl.name}}Service">
+		<wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+			<soap:address location="{{var wsdl.url}}" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

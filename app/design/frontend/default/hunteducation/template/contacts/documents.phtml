@@ -1,0 +1,256 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+require 'kint/Kint.class.php';
+
+//d($_POST);
+//d($_FILES);
+
+$_SESSION['userdetails'] = $_POST;
+d($_SESSION['userdetails']);
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+	<link rel="stylesheet" type="text/css" href="/skin/frontend/default/hunteducation/js/libs/css/dropzone.css" media="all">
+
+	<style type="text/css">
+		.dropzone .dz-default.dz-message {
+			background-image: none;
+		}
+
+		.dropzone .dz-default.dz-message span {
+			display: block;
+		}
+	</style>
+
+	<ul class="timeline">
+		<li>
+			<span class="icon">1</span>
+			Applicant Details
+		</li>
+		
+		<li class="active">
+			<span class="icon">2</span>
+			Document Upload
+		</li>
+		
+		<li>
+			<span class="icon">3</span>
+			Enrolment Payment
+		</li>
+	</ul>
+	
+	<div class="form-list">
+		<span class="note right"><em>•</em><span class="mobile-hide">Indicates required fields</span><span class="mobile-display">Required fields</span></span>
+	</div>
+	
+	<h1>Documents Upload</h1>
+		
+	<ul class="form-list">
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>Passport:</strong>
+			
+			<form action="/uploader.php?type=passport&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="passport"></form>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>Skilled Graduate Temp. Visa Subclass 485:</strong>
+			
+			<form action="/uploader.php?type=485&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="485">
+			</form>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>IELTS:</strong>
+			
+			<form action="/uploader.php?type=ielts&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="ielts"></form>
+		</li>
+		
+		<div class="clearfix tablet-hide"></div>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>Qualification Assessment by ICA, IPA or CPA:</strong>
+			
+			<form action="/uploader.php?type=qualification&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="qualification"></form>
+		</li>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>Transcript (from Australian institution):</strong>
+			
+			<form action="/uploader.php?type=transcript&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="transcript"></form>
+		
+		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
+			<strong>Course Completion Certificate:</strong>
+			
+			<form action="/uploader.php?type=completion&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="completion"></form>
+		</li>
+	</ul>
+	
+	<hr />
+
+<form action="/enrol" id="enrolmentForm" method="post" enctype="multipart/form-data">
+
+	<h1>Referral</h1>
+	
+	<ul class="form-list">
+		<li class="col-3 tablet-col-5 mobile-col-10">
+			<div class="input-box">
+				<select name="referral-where" id="referral-where" class="required-entry">
+					<option value="" class="label">Where did you hear about Hunt?</option>
+					<option value="radio">Radio</option>
+					<option value="friend">Friend</option>
+					<option value="print">Print Media</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+		</li>
+		
+		<script>
+			$j(document).ready(function(){
+				// hide all options
+				$j(".hide-option").hide();
+				
+				$j("#referral-where").on("change", function(){
+					var scope = $j(this).closest("ul");
+					
+					// hide all options
+					$j(".hide-option", scope).hide();
+					
+					// display relevant options
+					$j(".show-option-" + $j(this).val(), scope).show();
+				});
+			});
+		</script>
+		
+		<!-- radio station -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-radio">
+			<label for="radio-station">Which radio station?</label>
+			<div class="input-box">
+				<input name="radio-station" id="radio-station" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- print -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-print">
+			<label for="print-media">Which print media?</label>
+			<div class="input-box">
+				<input name="print-media" id="print-media" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- friend -->
+		<li class="col-3 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-name">Name</label>
+			<div class="input-box">
+				<input name="friend-name" id="friend-name" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-email">Email Address</label>
+			<div class="input-box">
+				<input name="friend-email" id="friend-email" class="input-text validate-email" type="text" />
+			</div>
+		</li>
+		
+		<li class="col-2 tablet-col-5 mobile-col-10 hide-option show-option-friend">
+			<label for="friend-phone">Phone Number</label>
+			<div class="input-box">
+				<input name="friend-phone" id="friend-phone" class="input-text" type="text" />
+			</div>
+		</li>
+		
+		<!-- other -->
+		<li class="col-7 tablet-col-5 mobile-col-10 hide-option show-option-other">
+			<label for="other-referral">Please provide details</label>
+			<div class="input-box">
+				<input name="other-referral" id="other-referral" class="input-text" type="text" />
+			</div>
+		</li>
+	</ul>
+
+	<hr />
+
+	<ul class="form-list">
+		<div class="col-2 mobile-col-10 padding-right">
+		  <h1>Declaration</h1>
+		</div>
+
+		<div class="col-8 mobile-col-10">
+	  	By submitting this form and continuing further you declare the following:<br />
+	  	<br />
+	  	I declare that the information supplied by me on this form is true and correct in every particular. I acknowledge that Hunt Education reserves the right to vary or reverse any decision regarding admission made on the basis of incorrect or incomplete information. I have read and understand the Hunt Education <a href="/refund-policy" target="_blank">Refund Policy</a>.<br />
+	  	<br />
+
+	  	<li class="col-10">
+		  	<div class="input-box" style="padding:1em 0;">
+			  	<div class="radio-box">
+			  		<input type="checkbox" name="terms" value="terms" class="required-entry" />
+			  		&nbsp; I have read and I accept the <a href="/terms" target="_blank">Terms and Conditions</a>.
+			  	</div>
+			  </div>
+			</li>
+
+			<li class="col-10">
+		  	<div class="input-box" style="padding:1em 0;">
+			  	<div class="radio-box">
+			  		<input type="checkbox" name="refund" value="refund" class="required-entry" />
+			  		&nbsp; I have read and I accept the <a href="/refund-policy" target="_blank">Refund Policy</a>.
+			  	</div>
+			  </div>
+			</li>
+		</div>
+	</ul>
+	
+  <ul class="timeline">
+  	<li>
+  		<span class="icon">1</span>
+  		Applicant Details
+  	</li>
+  	
+  	<li class="active">
+  		<span class="icon">2</span>
+  		Document Upload
+  	</li>
+  	
+  	<li>
+  		<span class="icon">3</span>
+  		Enrolment Payment
+  	</li>
+  </ul>
+  
+  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+  
+  <button type="submit" class="button right">Next Step: Enrolment Payment</button>
+    
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('enrolmentForm', true);
+//]]>
+</script>

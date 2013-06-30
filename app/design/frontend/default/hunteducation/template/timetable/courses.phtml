@@ -1,0 +1,498 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div class="grid-view">
+	<section class="col-2 tablet-col-5 mobile-col-5 column first">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/location-mask.png"); ?>" alt="Select Locations" class="icon" />
+			Select Locations
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="location-adelaide"><span class="note">SA</span><input type="checkbox" name="adelaide" id="location-adelaide" />Adelaide</label>
+			</li>
+			
+			<li>
+				<label for="location-brisbane"><span class="note">QLD</span><input type="checkbox" name="brisbane" id="location-brisbane" />Brisbane</label>
+			</li>
+			
+			<li>
+				<label for="location-darwin"><span class="note">NT</span><input type="checkbox" name="darwin" id="location-darwin" />Darwin</label>
+			</li>
+			
+			<li>
+				<label for="location-goldcoast"><span class="note">QLD</span><input type="checkbox" name="goldcoast" id="location-goldcoast" />Gold Coast</label>
+			</li>
+			
+			<li>
+				<label for="location-hobart"><span class="note">TAS</span><input type="checkbox" name="hobart" id="location-hobart" />Hobart</label>
+			</li>
+			
+			<li>
+				<label for="location-melbourne"><span class="note">VIC</span><input type="checkbox" name="melbourne" id="location-melbourne" />Melbourne</label>
+			</li>
+			
+			<li>
+				<label for="location-newcastle"><span class="note">NSW</span><input type="checkbox" name="newcastle" id="location-newcastle" />Newcastle</label>
+			</li>
+			
+			<li>
+				<label for="location-sydney"><span class="note">NSW</span><input type="checkbox" name="sydney" id="location-sydney" />Sydney</label>
+			</li>
+			
+			<li>
+				<label for="location-canberra"><span class="note">ACT</span><input type="checkbox" name="canberra" id="location-canberra" />Canberra</label>
+			</li>
+			
+			<li>
+				<label for="location-woolloongong"><span class="note">NSW</span><input type="checkbox" name="woolloongong" id="location-woolloongong" />Woolloongong</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-2 tablet-col-5 mobile-col-5 column">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/calendar-mask.png"); ?>" alt="Select Months" class="icon" />
+			Select Months
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="month-january"><input type="checkbox" name="january" id="month-january" />January</label>
+			</li>
+			
+			<li>
+				<label for="month-february"><input type="checkbox" name="february" id="month-february" />February</label>
+			</li>
+			
+			<li>
+				<label for="month-march"><input type="checkbox" name="march" id="month-march" />March</label>
+			</li>
+			
+			<li>
+				<label for="month-april"><input type="checkbox" name="april" id="month-april" />April</label>
+			</li>
+			
+			<li>
+				<label for="month-may"><input type="checkbox" name="may" id="month-may" />May</label>
+			</li>
+			
+			<li>
+				<label for="month-june"><input type="checkbox" name="june" id="month-june" />June</label>
+			</li>
+			
+			<li>
+				<label for="month-july"><input type="checkbox" name="july" id="month-july" />July</label>
+			</li>
+			
+			<li>
+				<label for="month-august"><input type="checkbox" name="august" id="month-august" />August</label>
+			</li>
+			
+			<li>
+				<label for="month-september"><input type="checkbox" name="september" id="month-september" />September</label>
+			</li>
+			
+			<li>
+				<label for="month-october"><input type="checkbox" name="october" id="month-october" />October</label>
+			</li>
+			
+			<li>
+				<label for="month-november"><input type="checkbox" name="november" id="month-november" />November</label>
+			</li>
+			
+			<li>
+				<label for="month-december"><input type="checkbox" name="december" id="month-december" />December</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-6 tablet-col-10 mobile-col-10 column full-height last disabled">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/information-mask.png"); ?>" alt="Location information and Course Dates" class="icon" />
+			Location Information &amp; Course Dates
+		</header>
+		
+		<div class="disabled-notice">
+			<img src="<?php echo $this->getSkinUrl("images/icons/information.png"); ?>" alt="" class="icon" />
+			Please select locations and dates to the left. The relevant information will then be displayed.
+		</div>
+	</section>
+</div>
+
+<div class="grid-view">
+	<section class="col-2 tablet-col-5 mobile-col-5 column first">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/location-mask.png"); ?>" alt="Select Locations" class="icon" />
+			Select Locations
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="location-adelaide"><span class="note">SA</span><input type="checkbox" name="adelaide" id="location-adelaide" />Adelaide</label>
+			</li>
+			
+			<li>
+				<label for="location-brisbane"><span class="note">QLD</span><input type="checkbox" name="brisbane" id="location-brisbane" checked="checked" />Brisbane</label>
+			</li>
+			
+			<li>
+				<label for="location-darwin"><span class="note">NT</span><input type="checkbox" name="darwin" id="location-darwin" />Darwin</label>
+			</li>
+			
+			<li>
+				<label for="location-goldcoast"><span class="note">QLD</span><input type="checkbox" name="goldcoast" id="location-goldcoast" checked="checked" />Gold Coast</label>
+			</li>
+			
+			<li>
+				<label for="location-hobart"><span class="note">TAS</span><input type="checkbox" name="hobart" id="location-hobart" />Hobart</label>
+			</li>
+			
+			<li>
+				<label for="location-melbourne"><span class="note">VIC</span><input type="checkbox" name="melbourne" id="location-melbourne" />Melbourne</label>
+			</li>
+			
+			<li>
+				<label for="location-newcastle"><span class="note">NSW</span><input type="checkbox" name="newcastle" id="location-newcastle" />Newcastle</label>
+			</li>
+			
+			<li>
+				<label for="location-sydney"><span class="note">NSW</span><input type="checkbox" name="sydney" id="location-sydney" />Sydney</label>
+			</li>
+			
+			<li>
+				<label for="location-canberra"><span class="note">ACT</span><input type="checkbox" name="canberra" id="location-canberra" />Canberra</label>
+			</li>
+			
+			<li>
+				<label for="location-woolloongong"><span class="note">NSW</span><input type="checkbox" name="woolloongong" id="location-woolloongong" />Woolloongong</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-2 tablet-col-5 mobile-col-5 column">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/calendar-mask.png"); ?>" alt="Select Months" class="icon" />
+			Select Months
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="month-january"><input type="checkbox" name="january" id="month-january" />January</label>
+			</li>
+			
+			<li>
+				<label for="month-february"><input type="checkbox" name="february" id="month-february" />February</label>
+			</li>
+			
+			<li>
+				<label for="month-march"><input type="checkbox" name="march" id="month-march" />March</label>
+			</li>
+			
+			<li>
+				<label for="month-april"><input type="checkbox" name="april" id="month-april" />April</label>
+			</li>
+			
+			<li>
+				<label for="month-may"><input type="checkbox" name="may" id="month-may" />May</label>
+			</li>
+			
+			<li>
+				<label for="month-june"><input type="checkbox" name="june" id="month-june" />June</label>
+			</li>
+			
+			<li>
+				<label for="month-july"><input type="checkbox" name="july" id="month-july" />July</label>
+			</li>
+			
+			<li>
+				<label for="month-august"><input type="checkbox" name="august" id="month-august" />August</label>
+			</li>
+			
+			<li>
+				<label for="month-september"><input type="checkbox" name="september" id="month-september" />September</label>
+			</li>
+			
+			<li>
+				<label for="month-october"><input type="checkbox" name="october" id="month-october" />October</label>
+			</li>
+			
+			<li>
+				<label for="month-november"><input type="checkbox" name="november" id="month-november" />November</label>
+			</li>
+			
+			<li>
+				<label for="month-december"><input type="checkbox" name="december" id="month-december" />December</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-6 tablet-col-10 mobile-col-10 column full-height last">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/information-mask.png"); ?>" alt="Location information and Course Dates" class="icon" />
+			Location Information &amp; Course Dates
+		</header>
+		
+		<div class="disabled-notice">
+			<img src="<?php echo $this->getSkinUrl("images/icons/information.png"); ?>" alt="" class="icon" />
+			Please select locations and dates to the left. The relevant information will then be displayed.
+		</div>
+		
+		<ul class="locations">
+			<li>
+				<header>
+					<a href="#" target="_blank" class="right view-map">View in Google Maps</a>
+					<h1>Brisbane, Queensland</h1>
+				</header>
+				
+				<div class="content disabled">
+					<strong>Adina Apartment Hotel</strong><br />
+					15 Ivory Lane, Brisbane Qld 4000
+					
+					<hr class="compact" />
+					
+					<span class="note right">Please select months to the left.</span>
+					
+					<h2>Dates Available</h2>
+				</div>
+			</li>
+			
+			<li>
+				<header>
+					<a href="#" target="_blank" class="right view-map">View in Google Maps</a>
+					<h1>Gold Coast, Queensland</h1>
+				</header>
+				
+				<div class="content disabled">
+					<strong>Adina Apartment Hotel</strong><br />
+					15 Ivory Lane, Brisbane Qld 4000
+					
+					<hr class="compact" />
+					
+					<span class="note right">Please select months to the left.</span>
+					
+					<h2>Dates Available</h2>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>
+
+<div class="grid-view">
+	<section class="col-2 tablet-col-5 mobile-col-5 column first">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/location-mask.png"); ?>" alt="Select Locations" class="icon" />
+			Select Locations
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="location-adelaide"><span class="note">SA</span><input type="checkbox" name="adelaide" id="location-adelaide" />Adelaide</label>
+			</li>
+			
+			<li>
+				<label for="location-brisbane"><span class="note">QLD</span><input type="checkbox" name="brisbane" id="location-brisbane" checked="checked" />Brisbane</label>
+			</li>
+			
+			<li>
+				<label for="location-darwin"><span class="note">NT</span><input type="checkbox" name="darwin" id="location-darwin" />Darwin</label>
+			</li>
+			
+			<li>
+				<label for="location-goldcoast"><span class="note">QLD</span><input type="checkbox" name="goldcoast" id="location-goldcoast" checked="checked" />Gold Coast</label>
+			</li>
+			
+			<li>
+				<label for="location-hobart"><span class="note">TAS</span><input type="checkbox" name="hobart" id="location-hobart" />Hobart</label>
+			</li>
+			
+			<li>
+				<label for="location-melbourne"><span class="note">VIC</span><input type="checkbox" name="melbourne" id="location-melbourne" />Melbourne</label>
+			</li>
+			
+			<li>
+				<label for="location-newcastle"><span class="note">NSW</span><input type="checkbox" name="newcastle" id="location-newcastle" />Newcastle</label>
+			</li>
+			
+			<li>
+				<label for="location-sydney"><span class="note">NSW</span><input type="checkbox" name="sydney" id="location-sydney" />Sydney</label>
+			</li>
+			
+			<li>
+				<label for="location-canberra"><span class="note">ACT</span><input type="checkbox" name="canberra" id="location-canberra" />Canberra</label>
+			</li>
+			
+			<li>
+				<label for="location-woolloongong"><span class="note">NSW</span><input type="checkbox" name="woolloongong" id="location-woolloongong" />Woolloongong</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-2 tablet-col-5 mobile-col-5 column">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/calendar-mask.png"); ?>" alt="Select Months" class="icon" />
+			Select Months
+		</header>
+		
+		<ul class="options">
+			<li>
+				<label for="month-january"><input type="checkbox" name="january" id="month-january" />January</label>
+			</li>
+			
+			<li>
+				<label for="month-february"><input type="checkbox" name="february" id="month-february" />February</label>
+			</li>
+			
+			<li>
+				<label for="month-march"><input type="checkbox" name="march" id="month-march" />March</label>
+			</li>
+			
+			<li>
+				<label for="month-april"><input type="checkbox" name="april" id="month-april" />April</label>
+			</li>
+			
+			<li>
+				<label for="month-may"><input type="checkbox" name="may" id="month-may" checked="checked" />May</label>
+			</li>
+			
+			<li>
+				<label for="month-june"><input type="checkbox" name="june" id="month-june" />June</label>
+			</li>
+			
+			<li>
+				<label for="month-july"><input type="checkbox" name="july" id="month-july" />July</label>
+			</li>
+			
+			<li>
+				<label for="month-august"><input type="checkbox" name="august" id="month-august" />August</label>
+			</li>
+			
+			<li>
+				<label for="month-september"><input type="checkbox" name="september" id="month-september" />September</label>
+			</li>
+			
+			<li>
+				<label for="month-october"><input type="checkbox" name="october" id="month-october" />October</label>
+			</li>
+			
+			<li>
+				<label for="month-november"><input type="checkbox" name="november" id="month-november" />November</label>
+			</li>
+			
+			<li>
+				<label for="month-december"><input type="checkbox" name="december" id="month-december" />December</label>
+			</li>
+		</ul>
+	</section>
+	
+	<section class="col-6 tablet-col-10 mobile-col-10 column full-height last">
+		<header>
+			<img src="<?php echo $this->getSkinUrl("images/icons/information-mask.png"); ?>" alt="Location information and Course Dates" class="icon" />
+			Location Information &amp; Course Dates
+		</header>
+		
+		<div class="disabled-notice">
+			<img src="<?php echo $this->getSkinUrl("images/icons/information.png"); ?>" alt="" class="icon" />
+			Please select locations and dates to the left. The relevant information will then be displayed.
+		</div>
+		
+		<ul class="locations">
+			<li>
+				<header>
+					<a href="#" target="_blank" class="right view-map">View in Google Maps</a>
+					<h1>Brisbane, Queensland</h1>
+				</header>
+				
+				<div class="content">
+					<strong>Adina Apartment Hotel</strong><br />
+					15 Ivory Lane, Brisbane Qld 4000
+					
+					<hr class="compact" />
+					
+					<span class="note right">Please select months to the left.</span>
+					
+					<h2>Dates Available</h2>
+					
+					<ul class="dates">
+						<li>
+							<div class="col-5 date">Saturday, 4th of May, 2013</div>
+							
+							<div class="col-3 places"><strong>5</strong> Places Left</div>
+							
+							<div class="col-2"><a href="#" class="button secondary right">Enrol Now</a></div>
+						</li>
+						
+						<li>
+							<div class="col-5 date">Sunday, 5th of May, 2013</div>
+							
+							<div class="col-3 places"><strong>3</strong> Places Left</div>
+							
+							<div class="col-2"><a href="#" class="button secondary right">Enrol Now</a></div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			
+			<li>
+				<header>
+					<a href="#" target="_blank" class="right view-map">View in Google Maps</a>
+					<h1>Gold Coast, Queensland</h1>
+				</header>
+				
+				<div class="content">
+					<strong>Adina Apartment Hotel</strong><br />
+					15 Ivory Lane, Brisbane Qld 4000
+					
+					<hr class="compact" />
+					
+					<span class="note right">Please select months to the left.</span>
+					
+					<h2>Dates Available</h2>
+					
+					<ul class="dates">
+						<li class="disabled">
+							<div class="col-5 date">Saturday, 4th of May, 2013</div>
+							
+							<div class="col-3 places"><strong>0</strong> Places Left</div>
+							
+							<div class="col-2"><a href="#" class="button secondary right">Enrol Now</a></div>
+						</li>
+						
+						<li class="disabled">
+							<div class="col-5 date">Sunday, 5th of May, 2013</div>
+							
+							<div class="col-3 places"><strong>0</strong> Places Left</div>
+							
+							<div class="col-2"><a href="#" class="button secondary right">Enrol Now</a></div>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>

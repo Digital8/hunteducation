@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * D8_Admin extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	D8
+ * @package		D8_Admin
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<modules>
+		<D8_Admin>
+			<version>0.0.1</version>
+		</D8_Admin>
+	</modules>
+	<frontend>
+		<routers>
+			<admin>
+				<use>standard</use>
+				<args>
+					<module>D8_Admin</module>
+					<frontName>admin</frontName>
+				</args>
+			</admin>
+		</routers>
+	</frontend>
+	
+	<stores>
+		<admin>
+			<design>
+				<package>
+					<name>default</name>
+				</package>
+				
+				<theme>
+					<default>admintheme</default>
+					<template>admintheme</template>
+					<skin>admintheme</skin>
+					<layout>default</layout>
+					<locale>default</locale>
+				</theme>
+			</design>
+		</admin>
+	</stores>
+</config>

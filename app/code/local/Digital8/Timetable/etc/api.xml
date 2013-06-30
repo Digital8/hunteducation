@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<api>
+		<resources>
+			<timetable_intake translate="title" module="timetable">
+				<title>Intake API</title>
+				<model>timetable/intake_api</model>
+				<acl>timetable/intake</acl>
+				<methods>
+					<list translate="title" module="timetable">
+						<title>Retrieve list of intakes</title>
+						<method>items</method>
+						<acl>timetable/intake/list</acl>
+					</list>
+					<info translate="title" module="timetable">
+						<title>Retrieve intake info</title>
+						<acl>timetable/intake/info</acl>
+					</info>
+					<add translate="title" module="timetable">
+						<title>Add intake</title>
+						<acl>timetable/intake/add</acl>
+					</add>
+					<update translate="title" module="timetable">
+						<title>Update intake</title>
+						<acl>timetable/intake/update</acl>
+					</update>
+					<remove translate="title" module="timetable">
+						<title>Remove intake</title>
+						<acl>timetable/intake/remove</acl>
+					</remove>
+				</methods>
+				<faults module="timetable">
+					<intake_not_exists>
+						<code>101</code>
+						<message>Requested intake does not exist.</message>
+					</intake_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving intake. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing intake. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</timetable_intake>
+			<timetable_location translate="title" module="timetable">
+				<title>Location API</title>
+				<model>timetable/location_api</model>
+				<acl>timetable/location</acl>
+				<methods>
+					<list translate="title" module="timetable">
+						<title>Retrieve list of locations</title>
+						<method>items</method>
+						<acl>timetable/location/list</acl>
+					</list>
+					<info translate="title" module="timetable">
+						<title>Retrieve location info</title>
+						<acl>timetable/location/info</acl>
+					</info>
+					<add translate="title" module="timetable">
+						<title>Add location</title>
+						<acl>timetable/location/add</acl>
+					</add>
+					<update translate="title" module="timetable">
+						<title>Update location</title>
+						<acl>timetable/location/update</acl>
+					</update>
+					<remove translate="title" module="timetable">
+						<title>Remove location</title>
+						<acl>timetable/location/remove</acl>
+					</remove>
+				</methods>
+				<faults module="timetable">
+					<location_not_exists>
+						<code>101</code>
+						<message>Requested location does not exist.</message>
+					</location_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving location. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing location. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</timetable_location>
+			<timetable_enrolment translate="title" module="timetable">
+				<title>Enrolment API</title>
+				<model>timetable/enrolment_api</model>
+				<acl>timetable/enrolment</acl>
+				<methods>
+					<list translate="title" module="timetable">
+						<title>Retrieve list of enrolments</title>
+						<method>items</method>
+						<acl>timetable/enrolment/list</acl>
+					</list>
+					<info translate="title" module="timetable">
+						<title>Retrieve enrolment info</title>
+						<acl>timetable/enrolment/info</acl>
+					</info>
+					<add translate="title" module="timetable">
+						<title>Add enrolment</title>
+						<acl>timetable/enrolment/add</acl>
+					</add>
+					<update translate="title" module="timetable">
+						<title>Update enrolment</title>
+						<acl>timetable/enrolment/update</acl>
+					</update>
+					<remove translate="title" module="timetable">
+						<title>Remove enrolment</title>
+						<acl>timetable/enrolment/remove</acl>
+					</remove>
+				</methods>
+				<faults module="timetable">
+					<enrolment_not_exists>
+						<code>101</code>
+						<message>Requested enrolment does not exist.</message>
+					</enrolment_not_exists>
+					<invalid_data>
+						<code>102</code>
+						<message>Provided data is invalid.</message>
+					</invalid_data>
+					<save_error>
+						<code>103</code>
+						<message>Error while saving enrolment. Details in error message.</message>
+					</save_error>
+					<remove_error>
+						<code>104</code>
+						<message>Error while removing enrolment. Details in error message.</message>
+					</remove_error>
+				</faults>
+			</timetable_enrolment>
+		</resources>
+		<resources_alias>
+			<intake>timetable_intake</intake>
+			<location>timetable_location</location>
+			<enrolment>timetable_enrolment</enrolment>
+		</resources_alias>
+		<v2>
+			<resources_function_prefix>
+				<intake>timetableIntake</intake>
+				<location>timetableLocation</location>
+				<enrolment>timetableEnrolment</enrolment>
+			</resources_function_prefix>
+		</v2>
+		<acl>
+			<resources>
+				<timetable translate="title" module="timetable">
+					<title>Timetable</title>
+					<intake translate="title" module="timetable">
+						<title>Intake</title>
+						<sort_order>110</sort_order>
+						<list translate="title" module="timetable">
+							<title>List</title>
+						</list>
+						<info translate="title" module="timetable">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="timetable">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="timetable">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="timetable">
+							<title>Remove</title>
+						</remove>
+					</intake>
+					<location translate="title" module="timetable">
+						<title>Location</title>
+						<sort_order>120</sort_order>
+						<list translate="title" module="timetable">
+							<title>List</title>
+						</list>
+						<info translate="title" module="timetable">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="timetable">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="timetable">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="timetable">
+							<title>Remove</title>
+						</remove>
+					</location>
+					<enrolment translate="title" module="timetable">
+						<title>Enrolment</title>
+						<sort_order>130</sort_order>
+						<list translate="title" module="timetable">
+							<title>List</title>
+						</list>
+						<info translate="title" module="timetable">
+							<title>Info</title>
+						</info>
+						<add translate="title" module="timetable">
+							<title>Add</title>
+						</add>
+						<update translate="title" module="timetable">
+							<title>Update</title>
+						</update>
+						<remove translate="title" module="timetable">
+							<title>Remove</title>
+						</remove>
+					</enrolment>
+				</timetable>
+			</resources>
+		</acl>
+	</api>
+</config>

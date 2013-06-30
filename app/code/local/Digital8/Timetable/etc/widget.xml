@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<widgets>
+	<timetable_intake_view type="timetable/intake_widget_view" translate="name description" module="timetable">
+		<name>Intake view</name>
+		<description>Intake view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<intake_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Intake</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_intake_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Intake</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</intake_id>
+		</parameters>
+	</timetable_intake_view>
+	<timetable_intake_link type="timetable/intake_widget_link" translate="name description" module="timetable">
+		<name>Intake link</name>
+		<description>Intake link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<intake_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Intake</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_intake_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Intake</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</intake_id>
+		</parameters>
+	</timetable_intake_link>
+	<timetable_location_view type="timetable/location_widget_view" translate="name description" module="timetable">
+		<name>Location view</name>
+		<description>Location view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<location_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Location</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_location_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Location</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</location_id>
+		</parameters>
+	</timetable_location_view>
+	<timetable_location_link type="timetable/location_widget_link" translate="name description" module="timetable">
+		<name>Location link</name>
+		<description>Location link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<location_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Location</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_location_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Location</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</location_id>
+		</parameters>
+	</timetable_location_link>
+	<timetable_enrolment_view type="timetable/enrolment_widget_view" translate="name description" module="timetable">
+		<name>Enrolment view</name>
+		<description>Enrolment view widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<enrolment_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Enrolment</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_enrolment_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Enrolment</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>120</sort_order>
+			</enrolment_id>
+		</parameters>
+	</timetable_enrolment_view>
+	<timetable_enrolment_link type="timetable/enrolment_widget_link" translate="name description" module="timetable">
+		<name>Enrolment link</name>
+		<description>Enrolment link widget</description>
+		<is_email_compatible>0</is_email_compatible>
+		<parameters>
+			<enrolment_id type="complex" translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Enrolment</label>
+				<type>label</type>
+				<helper_block>
+					<type>timetable/adminhtml_enrolment_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Enrolment</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>130</sort_order>
+			</enrolment_id>
+		</parameters>
+	</timetable_enrolment_link>
+</widgets>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Enrollments2 extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Enrollments2
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<enrollments2 translate="title" module="enrollments2">
+										<title>Enrollments2</title>
+									</enrollments2>
+								</children>
+							</config>
+						</children>
+					</system>
+					<enrollments2 translate="title" module="enrollments2">
+						<title>Enrollments2</title>
+						<children>
+							<intake translate="title" module="enrollments2">
+								<title>Intakes</title>
+							</intake>
+							<location translate="title" module="enrollments2">
+								<title>Locations</title>
+							</location>
+							<enrollment translate="title" module="enrollments2">
+								<title>Enrollments</title>
+							</enrollment>
+						</children>
+					</enrollments2>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<menu>
+		<enrollments2 translate="title" module="enrollments2">
+			<title>Enrollments2</title>
+			<sort_order>12</sort_order>
+			<depends>
+				<module>Digital8_Enrollments2</module>
+		 	</depends>
+		 	<children>
+				<intake translate="title" module="enrollments2">
+					<title>Intakes</title>
+					<action>adminhtml/enrollments2_intake</action>
+					<sort_order>0</sort_order>
+				</intake>
+				<location translate="title" module="enrollments2">
+					<title>Locations</title>
+					<action>adminhtml/enrollments2_location</action>
+					<sort_order>10</sort_order>
+				</location>
+				<enrollment translate="title" module="enrollments2">
+					<title>Enrollments</title>
+					<action>adminhtml/enrollments2_enrollment</action>
+					<sort_order>20</sort_order>
+				</enrollment>
+			</children>
+		</enrollments2>
+	</menu>
+</config>

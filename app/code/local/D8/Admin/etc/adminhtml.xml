@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * D8_Admin extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	D8
+ * @package		D8_Admin
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<menu>
+		<dashboard translate="title" module="adminhtml">
+			<title>Dashboard</title>
+			<sort_order>10</sort_order>
+			<action>adminhtml/dashboard</action>
+		</dashboard>
+		
+		<sales translate="title" module="sales">
+			<title>Sales</title>
+			<sort_order>25</sort_order>
+			<action>admin/sales_order</action>
+		</sales>
+		
+		<customer translate="title" module="customer">
+			<title>Customers</title>
+			<sort_order>27</sort_order>
+			<action>admin/customer</action>
+		</customer>
+		
+		<cms translate="title" module="cms">
+			<title>CMS</title>
+			<sort_order>30</sort_order>
+			<action>adminhtml/cms_page</action>
+		</cms>
+		
+		<system translate="title" module="adminhtml">
+			<title>System</title>
+			<sort_order>90</sort_order>
+			<action>adminhtml/system_config</action>
+		</system>
+		
+		
+		
+		<!-- remove -->
+		
+		
+		<catalog translate="title" module="catalog">
+			<depends><config>some/configuration/flag</config></depends>
+		</catalog>
+		
+		<xmlconnect translate="title" module="xmlconnect">
+			<depends><config>some/configuration/flag</config></depends>
+		</xmlconnect>
+		
+		<promo translate="title" module="catalogrule">
+			<depends><config>some/configuration/flag</config></depends>
+		</promo>
+		
+		<newsletter translate="title" module="newsletter">
+			<depends><config>some/configuration/flag</config></depends>
+		</newsletter>
+		
+		<report translate="title" module="report">
+			<depends><config>some/configuration/flag</config></depends>
+		</report>
+		
+		<cms translate="title" module="cms">
+			<children>
+				<poll translate="title" module="poll">
+					<depends><config>some/configuration/flag</config></depends>
+				</poll>
+				
+				<widget_instance translate="title" module="widget">
+					<depends><config>some/configuration/flag</config></depends>
+				</widget_instance>
+			</children>
+		</cms>
+		
+		<system translate="title" module="adminhtml">
+			<children>
+				<design translate="title">
+					<depends><config>some/configuration/flag</config></depends>
+				</design>
+				
+				<currency translate="title">
+					<depends><config>some/configuration/flag</config></depends>
+				</currency>
+				
+				<email_template translate="title">
+					<depends><config>some/configuration/flag</config></depends>
+				</email_template>
+				
+				<store translate="title" module="core">
+					<depends><config>some/configuration/flag</config></depends>
+				</store>
+				
+			    <order_statuses translate="title" module="sales">
+			    	<depends><config>some/configuration/flag</config></depends>
+			    </order_statuses>
+			    
+		        <api translate="title" module="api">
+		        	<depends><config>some/configuration/flag</config></depends>
+		        </api>
+			</children>
+		</system>
+	</menu>
+</config>

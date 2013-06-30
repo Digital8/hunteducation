@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	 xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	 name="{{var wsdl.name}}"
+	 targetNamespace="urn:{{var wsdl.name}}">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+			<xsd:complexType name="enrollmentsIntakeListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:enrollmentsIntakeListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsIntakeListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsIntakeAddEntity">
+				<xsd:sequence>
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsIntakeUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsIntakeInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="location_id" type="xsd:string" />
+					<xsd:element name="date" type="xsd:string" />
+					<xsd:element name="enrolled" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="enrollmentsIntakeListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsIntakeListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsIntakeInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsIntakeAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsIntakeUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="intakeId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsIntakeRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+					<xsd:complexType name="enrollmentsLocationListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:enrollmentsLocationListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsLocationListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsLocationAddEntity">
+				<xsd:sequence>
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsLocationUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsLocationInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="suburb" type="xsd:string" />
+					<xsd:element name="state" type="xsd:string" />
+					<xsd:element name="address" type="xsd:string" />
+					<xsd:element name="googlemaps" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="enrollmentsLocationListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsLocationListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsLocationInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsLocationAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsLocationUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="locationId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsLocationRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+					<xsd:complexType name="enrollmentsEnrollmentListEntityArray">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" name="complexObjectArray" type="typens:enrollmentsEnrollmentListEntity" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsEnrollmentListEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsEnrollmentAddEntity">
+				<xsd:sequence>
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsEnrollmentUpdateEntity">
+				<xsd:sequence>
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentsEnrollmentInfoEntity">
+				<xsd:sequence>
+					<xsd:element name="entity_id" type="xsd:string" />
+					<xsd:element name="intake_id" type="xsd:string" />
+					<xsd:element name="uuid" type="xsd:string" />
+					<xsd:element name="xml" type="xsd:string" />
+					<xsd:element name="approved" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="url_key" type="xsd:string" />
+					<xsd:element name="status" type="xsd:string" />
+					<xsd:element name="in_rss" type="xsd:string" />
+					<xsd:element name="meta_title" type="xsd:string" />
+					<xsd:element name="meta_keywords" type="xsd:string" />
+					<xsd:element name="meta_description" type="xsd:string" />
+
+					<xsd:element name="created_at" type="xsd:string" />
+					<xsd:element name="updated_at" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:element name="enrollmentsEnrollmentListRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentListResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsEnrollmentListEntityArray" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentInfoRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrollmentId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentInfoResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:enrollmentsEnrollmentInfoEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentAddRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsEnrollmentAddEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentAddResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentUpdateRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrollmentId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:enrollmentsEnrollmentUpdateEntity" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentUpdateResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentRemoveRequestParam">
+				<xsd:complexType>
+					<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+						<xsd:element minOccurs="1" maxOccurs="1" name="enrollmentId" type="xsd:string" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enrollmentsEnrollmentRemoveResponseParam">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+					</xsd:sequence>
+ 				</xsd:complexType>
+			</xsd:element>
+				</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="enrollmentsIntakeListRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeListResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeInfoRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeInfoResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeAddRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeAddResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeUpdateRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeUpdateResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeRemoveRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsIntakeRemoveResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsIntakeRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationListRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationListResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationInfoRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationInfoResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationAddRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationAddResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationUpdateRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationUpdateResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationRemoveRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsLocationRemoveResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsLocationRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentListRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentListRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentListResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentListResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentInfoRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentInfoRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentInfoResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentInfoResponseParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentAddRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentAddRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentAddResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentAddResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentUpdateRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentUpdateRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentUpdateResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentUpdateResponseParam"/>
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentRemoveRequest">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentRemoveRequestParam" />
+	</wsdl:message>
+	<wsdl:message name="enrollmentsEnrollmentRemoveResponse">
+		<wsdl:part name="parameters" element="typens:enrollmentsEnrollmentRemoveResponseParam" />
+	</wsdl:message>
+	<wsdl:portType name="{{var wsdl.handler}}PortType">
+		<wsdl:operation name="enrollmentsIntakeList">
+			<wsdl:documentation>Retrieve list of intakes</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsIntakeListRequest" />
+			<wsdl:output message="typens:enrollmentsIntakeListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeInfo">
+			<wsdl:documentation>Retrieve intake info</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsIntakeInfoRequest" />
+			<wsdl:output message="typens:enrollmentsIntakeInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeAdd">
+			<wsdl:documentation>Add intake</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsIntakeAddRequest" />
+			<wsdl:output message="typens:enrollmentsIntakeAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeUpdate">
+			<wsdl:documentation>Update intake</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsIntakeUpdateRequest" />
+			<wsdl:output message="typens:enrollmentsIntakeUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeRemove">
+			<wsdl:documentation>Remove intake</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsIntakeRemoveRequest" />
+			<wsdl:output message="typens:enrollmentsIntakeRemoveResponse" />
+		</wsdl:operation>
+			<wsdl:operation name="enrollmentsLocationList">
+			<wsdl:documentation>Retrieve list of locations</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsLocationListRequest" />
+			<wsdl:output message="typens:enrollmentsLocationListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationInfo">
+			<wsdl:documentation>Retrieve location info</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsLocationInfoRequest" />
+			<wsdl:output message="typens:enrollmentsLocationInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationAdd">
+			<wsdl:documentation>Add location</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsLocationAddRequest" />
+			<wsdl:output message="typens:enrollmentsLocationAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationUpdate">
+			<wsdl:documentation>Update location</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsLocationUpdateRequest" />
+			<wsdl:output message="typens:enrollmentsLocationUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationRemove">
+			<wsdl:documentation>Remove location</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsLocationRemoveRequest" />
+			<wsdl:output message="typens:enrollmentsLocationRemoveResponse" />
+		</wsdl:operation>
+			<wsdl:operation name="enrollmentsEnrollmentList">
+			<wsdl:documentation>Retrieve list of enrollments</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsEnrollmentListRequest" />
+			<wsdl:output message="typens:enrollmentsEnrollmentListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentInfo">
+			<wsdl:documentation>Retrieve enrollment info</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsEnrollmentInfoRequest" />
+			<wsdl:output message="typens:enrollmentsEnrollmentInfoResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentAdd">
+			<wsdl:documentation>Add enrollment</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsEnrollmentAddRequest" />
+			<wsdl:output message="typens:enrollmentsEnrollmentAddResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentUpdate">
+			<wsdl:documentation>Update enrollment</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsEnrollmentUpdateRequest" />
+			<wsdl:output message="typens:enrollmentsEnrollmentUpdateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentRemove">
+			<wsdl:documentation>Remove enrollment</wsdl:documentation>
+			<wsdl:input message="typens:enrollmentsEnrollmentRemoveRequest" />
+			<wsdl:output message="typens:enrollmentsEnrollmentRemoveResponse" />
+		</wsdl:operation>
+		</wsdl:portType>
+	<wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="enrollmentsIntakeList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsIntakeRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="enrollmentsLocationList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsLocationRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="enrollmentsEnrollmentList">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentInfo">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentAdd">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentUpdate">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enrollmentsEnrollmentRemove">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		</wsdl:binding>
+	<wsdl:service name="{{var wsdl.name}}Service">
+		<wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+			<soap:address location="{{var wsdl.url}}" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

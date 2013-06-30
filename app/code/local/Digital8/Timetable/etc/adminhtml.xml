@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Timetable extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Timetable
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<timetable translate="title" module="timetable">
+										<title>Timetable</title>
+									</timetable>
+								</children>
+							</config>
+						</children>
+					</system>
+					<timetable translate="title" module="timetable">
+						<title>Timetable</title>
+						<children>
+							<intake translate="title" module="timetable">
+								<title>Intakes</title>
+							</intake>
+							<location translate="title" module="timetable">
+								<title>Locations</title>
+							</location>
+							<enrolment translate="title" module="timetable">
+								<title>Enrolments</title>
+							</enrolment>
+						</children>
+					</timetable>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<menu>
+		<timetable translate="title" module="timetable">
+			<title>Timetable</title>
+			<sort_order>20</sort_order>
+			<action>adminhtml/timetable_intake</action>
+			<depends>
+				<module>Digital8_Timetable</module>
+		 	</depends>
+		 	<children>
+				<intake translate="title" module="timetable">
+					<title>Intakes</title>
+					<action>adminhtml/timetable_intake</action>
+					<sort_order>0</sort_order>
+				</intake>
+				<location translate="title" module="timetable">
+					<title>Locations</title>
+					<action>adminhtml/timetable_location</action>
+					<sort_order>10</sort_order>
+				</location>
+				<enrolment translate="title" module="timetable">
+					<title>Enrolments</title>
+					<action>adminhtml/timetable_enrolment</action>
+					<sort_order>20</sort_order>
+				</enrolment>
+			</children>
+		</timetable>
+	</menu>
+</config>

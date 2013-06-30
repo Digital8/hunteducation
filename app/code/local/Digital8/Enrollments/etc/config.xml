@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Digital8_Enrollments extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Digital8
+ * @package		Digital8_Enrollments
+ * @copyright  	Copyright (c) 2013
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<modules>
+		<Digital8_Enrollments>
+			<version>0.0.1</version>
+		</Digital8_Enrollments>
+	</modules>
+	<global>
+		<resources>
+			<digital8_enrollments_setup>
+				<setup>
+					<module>Digital8_Enrollments</module>
+					<class>Digital8_Enrollments_Model_Resource_Setup</class>
+				</setup>
+			</digital8_enrollments_setup>
+		</resources>
+		<blocks>
+			<enrollments>
+				<class>Digital8_Enrollments_Block</class>
+			</enrollments>
+		</blocks>
+		<helpers>
+			<enrollments>
+				<class>Digital8_Enrollments_Helper</class>
+			</enrollments>
+		</helpers>
+		<models>
+			<enrollments>
+				<class>Digital8_Enrollments_Model</class>
+				<resourceModel>enrollments_resource</resourceModel>
+			</enrollments>
+			<enrollments_resource>
+				<class>Digital8_Enrollments_Model_Resource</class>
+				<entities>
+					<intake>
+						<table>enrollments_intake</table>
+					</intake>
+					<intake_store>
+						<table>enrollments_intake_store</table>
+					</intake_store>
+					<location>
+						<table>enrollments_location</table>
+					</location>
+					<location_store>
+						<table>enrollments_location_store</table>
+					</location_store>
+					<enrollment>
+						<table>enrollments_enrollment</table>
+					</enrollment>
+					<enrollment_store>
+						<table>enrollments_enrollment_store</table>
+					</enrollment_store>
+				</entities>
+			</enrollments_resource>
+		</models>
+		<events>
+			<controller_front_init_routers>
+				<observers>
+					<digital8_enrollments>
+						<class>Digital8_Enrollments_Controller_Router</class>
+						<method>initControllerRouters</method>
+					</digital8_enrollments>
+				</observers>
+			</controller_front_init_routers>
+		</events>
+	</global>
+	<adminhtml>
+		<layout>
+			<updates>
+				<digital8_enrollments>
+					<file>digital8_enrollments.xml</file>
+				</digital8_enrollments>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Digital8_Enrollments>
+					<files>
+						<default>Digital8_Enrollments.csv</default>
+					</files>
+				</Digital8_Enrollments>
+			</modules>
+		</translate>
+	</adminhtml>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<Digital8_Enrollments before="Mage_Adminhtml">Digital8_Enrollments_Adminhtml</Digital8_Enrollments>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<frontend>
+		<routers>
+			<enrollments>
+				<use>standard</use>
+				<args>
+					<module>Digital8_Enrollments</module>
+					<frontName>enrollments</frontName>
+				</args>
+			</enrollments>
+		</routers>
+		<layout>
+			<updates>
+				<digital8_enrollments>
+					<file>digital8_enrollments.xml</file>
+				</digital8_enrollments>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Digital8_Enrollments>
+					<files>
+						<default>Digital8_Enrollments.csv</default>
+					</files>
+				</Digital8_Enrollments>
+			</modules>
+		</translate>
+	</frontend>
+	<default>
+		<enrollments>
+			<intake>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Intakes</meta_title>
+			</intake>
+			<location>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Locations</meta_title>
+			</location>
+			<enrollment>
+				<breadcrumbs>1</breadcrumbs>
+				<rss>1</rss>
+				<meta_title>Enrollments</meta_title>
+			</enrollment>
+		</enrollments>
+	</default>
+</config>
