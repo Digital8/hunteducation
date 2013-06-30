@@ -78,7 +78,7 @@
           //so 30/31 seem to glitch. this fixes it
           //d(strtotime("now"));
           //$start = strtotime("first day " . 0 . " month");
-          $start = date("m/d/Y", strtotime(date('m').'/01/'.date('Y').' 00:00:00'));
+          $start = strtotime(date('m').'/01/'.date('Y').' 00:00:00');
 
           //d($start);
 
