@@ -26,7 +26,8 @@ function getUploadPath($email, $type, $filename)
       file_put_contents($folder . '/userdetails.txt', strtolower(trim($email)));
     }
   }
-  return $folder . '/' . $type . '-' . strtolower(pathinfo($filename, PATHINFO_FILENAME)) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+  //return $folder . '/' . $type . '-' . strtolower(pathinfo($filename, PATHINFO_FILENAME)) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+  return $folder . '/' . $type . '-' . md5(time() . strtolower(pathinfo($filename, PATHINFO_FILENAME))) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 }
 
 //var_dump($_SESSION);
