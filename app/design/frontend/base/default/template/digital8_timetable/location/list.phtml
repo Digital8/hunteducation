@@ -168,7 +168,7 @@
 											}
 											else {
 												echo "<li class='" . $_class . "' style='display:none'>";
-												$_enrol_url = "/enrolment";
+												$_enrol_url = "/enrolment" . "?intake_id=" . $_intake->getID();
 											}
 										?>
 

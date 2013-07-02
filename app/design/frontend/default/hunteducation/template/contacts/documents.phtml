@@ -26,36 +26,29 @@
 
 require 'kint/Kint.class.php';
 
-session_start();
-
-//d($_POST);
-//d($_FILES);
-
-if(!isset($_POST['email'])) {
-	header("Status: 301");
-  header('Location: http://www.hunteducation.com/enrolment') ;  // send to the enrolment page
-  exit; 
-}
-
-
-$_SESSION['userdetails'] = $_POST;
-d($_SESSION['userdetails']);
 ?>
 
 <?php
-// Config
-$dbhost = 'localhost';
-$dbname = 'hunt';
 
-// Connect to test database
-$m = new Mongo("mongodb://$dbhost");
-$db = $m->$dbname;
-
-// select the collection
-$db->hunt->insert($_SESSION['userdetails']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  
+  include 'UUID.php';
+  setcookie('enrolment_id', UUID::v4());
+  
+  // Config
+  $dbhost = 'localhost';
+  $dbname = 'hunt';
+  
+  // Connect to test database
+  $m = new Mongo("mongodb://$dbhost");
+  $db = $m->$dbname;
+  
+  // select the collection
+  $db->enrolments->insert($_POST);
+  
+}
 
 ?>
-
 
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 

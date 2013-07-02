@@ -1,6 +1,14 @@
 <?php
 
+require 'UUID.php';
+
 require 'lib/kint/Kint.class.php';
+
+$enrolment_id = $_COOKIE['enrolment_id'];
+
+s($enrolment_id);
+
+$namespace = '1bf34ef3-a7f8-4dec-aee2-eef4d9b89ccb';
 
 // you can put this in a common/settings file or something
 define('DOCUMENT_UPLOAD_DIR', 'uploads');
@@ -14,10 +22,12 @@ function getUploadPath($email, $type, $filename)
   {
     throw new Exception('Unknown document type');
   }
-  $folder = DOCUMENT_UPLOAD_DIR . '/' . md5(strtolower(trim($email)));
+  global $namespace;
+  global $enrolment_id;
+  $folder = DOCUMENT_UPLOAD_DIR . '/' . UUID::v5($namespace, $email) . '/' . $enrolment_id;
   if (!file_exists($folder))
   {
-    if (!mkdir($folder))
+    if (!mkdir($folder, 0777, true))
     {
       throw new Exception("Oh noes!");
     }
@@ -26,8 +36,7 @@ function getUploadPath($email, $type, $filename)
       file_put_contents($folder . '/userdetails.txt', strtolower(trim($email)));
     }
   }
-  //return $folder . '/' . $type . '-' . strtolower(pathinfo($filename, PATHINFO_FILENAME)) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-  return $folder . '/' . $type . '-' . md5(time() . strtolower(pathinfo($filename, PATHINFO_FILENAME))) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+  return $folder . '/' . $type . '-' . strtolower(pathinfo($filename, PATHINFO_FILENAME)) . '.' . strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 }
 
 //var_dump($_SESSION);
@@ -39,7 +48,9 @@ function getUploadPath($email, $type, $filename)
 // get the user's email address
 // error checking goes here
 //$email = $_SESSION['userdetails']['email'];
-$email = $_GET['email'];
+$email = strtolower(trim($_GET['email']));
+
+s($email);
 
 // get a path corresponding to that email address
 // this function will return some MD5 path or something
