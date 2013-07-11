@@ -7,9 +7,10 @@
 /* @group variables */
 
 @color-text: #555;
-@color-text-accent: #00969c;
-@color-accent: #13b7bd;
-@color-secondary: #d1308f;
+@color-text-accent: #b0d649;
+@color-accent: #a4cb3f;
+@color-accent-dark: #9ac135;
+@color-secondary: #30b5d1;
 @color-border: #DDD;
 
 @columns: 10;
@@ -18,7 +19,9 @@
 /* @end */
 
 /* @group fonts */
-
+html,body{
+	text-align: left;
+}
 .light {
 	font-family: "open-sans-n3", "open-sans", sans-serif;
 	font-weight: 300;
@@ -110,7 +113,7 @@ strong {
 
 a {
 	text-decoration: none;
-	color: @color-text-accent;
+	color: @color-accent-dark;
 	.transition(all, 0.15s);
 	
 	&:hover {
@@ -247,9 +250,10 @@ hr {
 	&.trim {
 		margin: 0;
 		border: none;
-		height: 0.55em;
+		height: 0.4em;
 		background: url(../images/trim.png);
 		background-size: 100% 100%;
+		width: 100%;
 	}
 }
 
@@ -518,7 +522,7 @@ form,
 	.note {
 		.inline-block;
 		width: auto;
-		color: @color-text-accent;
+		color: @color-accent-dark;
 	}
 	
 	textarea {
@@ -910,11 +914,11 @@ body {
 /* @group header */
 
 #top-header {
-	background: #007b80;
+	background: #1b1118;
 	.clearfix;
-	padding: 0.5em @gutter * 2;
+	padding: 0.5em 6em;
 	line-height: 1;
-	color: #c1e7e8;
+	color: #a6829a;
 	
 	strong {
 		color: #FFF;
@@ -933,14 +937,16 @@ body {
 
 #header {
 	position: relative;
-	background: @color-accent;
+	background: #23171f;
 	.clearfix;
+	padding: 0 5em 0 6em;
 	
 	#logo {
 		float: left;
 		display: block;
 		width: 9em;
 		margin: 1em;
+		margin-left: 0;
 		
 		img {
 			display: block;
@@ -951,10 +957,10 @@ body {
 		display: none;
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: 70px;
 		bottom: 0;
 		width: 4.5em;
-		background: darken(@color-accent, 5%) url(../images/icons/menu.png) no-repeat center;
+		background: url(../images/icons/menu.png) no-repeat center;
 		background-size: contain;
 	}
 }
@@ -980,17 +986,16 @@ body {
 		a {
 			display: block;
 			line-height: 6.9em;
-			padding: 0 1.3em;
+			padding: 0 1em;
 			font-size: 0.8em;
-			color: #97e8eb;
+			color: #a6829a;
 			.semibold;
 		}
 		
-		&:hover,
-		&.active {
+		&.active{
 			a {
 				position: relative;
-				color: #FFF;
+				color: @color-accent;
 				
 				&:after {
 					content: '';
@@ -998,20 +1003,26 @@ body {
 					bottom: 0;
 					left: 50%;
 					margin-left: -5px;
-					border-bottom: 5px solid #402d39;
+					border-bottom: 5px solid @color-text-accent;
 					border-left: 5px solid transparent;
 					border-right: 5px solid transparent;
 					border-top: none;
 				}
 			}
 		}
+		&:hover{
+			a{
+				color: @color-accent;
+			}
+		}
 		
 		&.feature {
-			margin-left: 1.4em;
+			
 			
 			a {
-				background: darken(@color-accent, 5%);
-				padding: 0 2.6em;
+				background: #23171f;
+				border-left: 1px solid #2d1f28;
+				padding: 0 1em;
 			}
 		}
 	}
@@ -1110,10 +1121,10 @@ body {
 		
 		&.disabled {
 			> header {
-				color: desaturate(lighten(@color-accent, 25%), 30%);
+				color: #cde67a;
 				
 				.icon {
-					background: desaturate(lighten(@color-accent, 25%), 30%);
+					background: #cde67a;
 				}
 			}
 			
@@ -1325,7 +1336,7 @@ body {
 		}
 		
 		th {
-			color: @color-text-accent;
+			color: @color-accent-dark;
 			.semibold;
 		}
 		
@@ -1486,7 +1497,9 @@ body {
 	background-size: cover;
 	margin: @gutter * -1 @gutter * -2 0;
 	.clearfix;
-	
+	.trim{
+		clear: both;
+	}
 	h1 {
 		font-size: 2.2em;
 		color: @color-text-accent;
@@ -1660,6 +1673,7 @@ body {
 			
 			p {
 				font-size: 2em;
+				height: 250px;
 				.light;
 			}
 		}
@@ -1679,7 +1693,7 @@ body {
 		display: block;
 		font-size: 1.2em;
 		.serif-italic;
-		color: @color-text-accent;
+		color: #7fa617;
 		padding: 0 @gutter * 2;
 		margin: 2em 0;
 		
@@ -1751,8 +1765,10 @@ body {
 	z-index: 1;
 	zoom: 1;
 	height: 100%;
+	.transition(all, .2s);
 	
 	.slides {
+		.transition(all, .2s);
 		.clearfix;
 		zoom: 1;
 		
@@ -1868,7 +1884,34 @@ html[xmlns] .slides {display: block;}
 }
 
 /* @end */
-
+.col-3{
+	position: relative;
+}
+.img-eligibility{
+	background: url(http://www.hunteducation.com/skin/frontend/default/hunteducation/images/eligibility.jpg);
+	background-size: 100%;
+	display: block;
+	height: 211px;
+	position: absolute;
+	top: -266px;
+	width: 292px;
+}
+.img-course-overview{
+	background: url(http://www.hunteducation.com/skin/frontend/default/hunteducation/images/course-overview.jpg);
+	background-size: 100%;
+	display: block;
+	height: 262px;
+	margin-top: 50px;
+	width: 328px;
+}
+.img-internship{
+	background: url(http://www.hunteducation.com/skin/frontend/default/hunteducation/images/internship.jpg);
+	background-size: 100%;
+	display: block;
+	height: 518px;
+	margin: 50px auto 0 auto;
+	width: 197px;
+}
 /* @group footer */
 
 #footer {
@@ -1879,6 +1922,7 @@ html[xmlns] .slides {display: block;}
 	#footer-nav,
 	#copyright {
 		font-size: 0.9em;
+
 	}
 	
 	nav {
@@ -1903,6 +1947,7 @@ html[xmlns] .slides {display: block;}
 	
 	.caption {
 		line-height: 2.2em / 0.9;
+		font-style: italic;
 	}
 }
 
@@ -1939,6 +1984,12 @@ html[xmlns] .slides {display: block;}
 			margin: 0 1.2em 0.5em 0;
 			padding: 0;
 			list-style: none;
+			a{
+				color: #666;
+				&:hover{
+					color: @color-accent-dark;
+				}
+			}
 		}
 	}
 }
@@ -1960,11 +2011,11 @@ html[xmlns] .slides {display: block;}
 	
 	&,
 	a {
-		color: desaturate(lighten(@color-text-accent, 40%), 50%);
+		color: #AAA;
 	}
 	
 	a:hover {
-		color: @color-text-accent;
+		color: @color-accent-dark;
 	}
 }
 

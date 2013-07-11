@@ -33,7 +33,9 @@ require 'kint/Kint.class.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
   include 'UUID.php';
-  setcookie('enrolment_id', UUID::v4());
+  $uuid = UUID::v4();
+  $_POST['uuid'] = $uuid;
+  setcookie('enrolment_id', $uuid);
   
   // Config
   $dbhost = 'localhost';
@@ -91,20 +93,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>Passport:</strong>
 			
-			<form action="/uploader.php?type=passport&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="passport"></form>
+			<form action="/uploader.php?type=passport&email=<?php echo($_POST['email']); ?>" class="dropzone" id="passport"></form>
 		</li>
 		
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>Skilled Graduate Temp. Visa Subclass 485:</strong>
 			
-			<form action="/uploader.php?type=485&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="485">
+			<form action="/uploader.php?type=485&email=<?php echo($_POST['email']); ?>" class="dropzone" id="485">
 			</form>
 		</li>
 		
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>IELTS:</strong>
 			
-			<form action="/uploader.php?type=ielts&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="ielts"></form>
+			<form action="/uploader.php?type=ielts&email=<?php echo($_POST['email']); ?>" class="dropzone" id="ielts"></form>
 		</li>
 		
 		<div class="clearfix tablet-hide"></div>
@@ -112,18 +114,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>Qualification Assessment by ICA, IPA or CPA:</strong>
 			
-			<form action="/uploader.php?type=qualification&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="qualification"></form>
+			<form action="/uploader.php?type=qualification&email=<?php echo($_POST['email']); ?>" class="dropzone" id="qualification"></form>
 		</li>
 		
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>Transcript (from Australian institution):</strong>
 			
-			<form action="/uploader.php?type=transcript&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="transcript"></form>
+			<form action="/uploader.php?type=transcript&email=<?php echo($_POST['email']); ?>" class="dropzone" id="transcript"></form>
 		
 		<li class="col-3 tablet-col-5 mobile-col-10" style="width: 33%">
 			<strong>Course Completion Certificate:</strong>
 			
-			<form action="/uploader.php?type=completion&email=<?php echo($_SESSION['userdetails']['email']); ?>" class="dropzone" id="completion"></form>
+			<form action="/uploader.php?type=completion&email=<?php echo($_POST['email']); ?>" class="dropzone" id="completion"></form>
 		</li>
 	</ul>
 	

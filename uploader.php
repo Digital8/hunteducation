@@ -24,6 +24,8 @@ function getUploadPath($email, $type, $filename)
   }
   global $namespace;
   global $enrolment_id;
+  s($email);
+  s(UUID::v5($namespace, $email));
   $folder = DOCUMENT_UPLOAD_DIR . '/' . UUID::v5($namespace, $email) . '/' . $enrolment_id;
   if (!file_exists($folder))
   {
